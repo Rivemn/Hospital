@@ -11,6 +11,7 @@ import { DoctorsComponent } from './sections/doctors/doctors.component';
 import { MedicinesComponent } from './sections/medicines/medicines.component';
 
 import { AboutComponent } from './sections/about/about.component';
+import { SalesComponent } from './sections/sales/sales.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AboutComponent } from './sections/about/about.component';
     DoctorsComponent,
     MedicinesComponent,
    
-    AboutComponent
+    AboutComponent,
+         SalesComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
