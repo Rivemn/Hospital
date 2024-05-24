@@ -10,6 +10,8 @@ import { ServicesComponent } from './sections/services/services.component';
 import { DoctorsComponent } from './sections/doctors/doctors.component';
 import { MedicinesComponent } from './sections/medicines/medicines.component';
 
+import { AboutComponent } from './sections/about/about.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,9 @@ import { MedicinesComponent } from './sections/medicines/medicines.component';
     FooterComponent,
     ServicesComponent,
     DoctorsComponent,
-    MedicinesComponent
+    MedicinesComponent,
+   
+    AboutComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

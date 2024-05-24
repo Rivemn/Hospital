@@ -26,3 +26,36 @@ footer a {
   footer a:hover {
     text-decoration: underline;
   }
+/* styles.css */
+
+.contact-info {
+  float: right;
+  margin-left: 20px; /* Добавим отступ слева, чтобы контактная информация не сливалась с другим содержимым */
+}
+
+/* styles.css */
+
+.contact-info {
+  float: right;
+  margin-left: 20px;
+}
+
+.social-icons {
+  margin-left: 10px;
+}
+
+  .social-icons a {
+    text-decoration: none;
+    margin-left: 10px;
+  }
+
+.icon {
+  width: 30px; /* Ширина иконки */
+  height: 30px; /* Высота иконки */
+}
+
+  .icon:hover {
+    opacity: 0.8; /* Эффект при наведении */
+  }
+
+
