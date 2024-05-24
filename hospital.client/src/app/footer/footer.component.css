@@ -1,0 +1,28 @@
+footer {
+  background-color: #0073e6; /* Синий цвет фона */
+  color: white; /* Белый цвет текста */
+  padding: 20px 0; /* Отступы сверху и снизу */
+  width: 100%; /* Ширина футера на всю ширину окна */
+  position: fixed; /* Позиционирование футера */
+  bottom: 0; /* Прижатие к нижнему краю окна */
+}
+
+.container {
+  max-width: 1200px; /* Максимальная ширина контейнера */
+  margin: 0 auto; /* Автоматическое выравнивание по центру */
+}
+
+/* Нижний отступ для контента, чтобы он не перекрывался футером */
+.content {
+  margin-bottom: 60px; /* Высота футера + немного отступа */
+}
+
+/* Стили для ссылок в футере */
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+  footer a:hover {
+    text-decoration: underline;
+  }

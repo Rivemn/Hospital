@@ -1,0 +1,44 @@
+header {
+  background-color: #f8f9fa; /* Светлый фон для хедера */
+  padding: 20px 0; /* Отступы сверху и снизу */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень для разделения хедера */
+}
+
+.main-menu {
+  display: flex;
+  justify-content: space-between; /* Разделение логотипа и навигации */
+  align-items: center; /* Центрирование по вертикали */
+  max-width: 1200px; /* Максимальная ширина для центрирования */
+  margin: 0 auto; /* Центрирование блока */
+  padding: 0 20px; /* Внутренние отступы */
+}
+
+.navbar-brand {
+  font-size: 24px; /* Размер шрифта логотипа */
+  font-weight: bold; /* Жирный шрифт для логотипа */
+  color: #333; /* Цвет логотипа */
+  text-decoration: none; /* Удаление подчеркивания */
+}
+
+nav ul {
+  list-style: none; /* Удаление маркеров списка */
+  display: flex; /* Выстраивание элементов в ряд */
+  margin: 0; /* Удаление внешних отступов */
+  padding: 0; /* Удаление внутренних отступов */
+}
+
+  nav ul li {
+    margin-left: 20px; /* Отступы между элементами меню */
+  }
+
+    nav ul li a {
+      font-size: 18px; /* Размер шрифта элементов меню */
+      color: #333; /* Цвет текста меню */
+      text-decoration: none; /* Удаление подчеркивания */
+      padding: 10px 15px; /* Внутренние отступы для кликабельной области */
+      transition: color 0.3s ease; /* Плавный переход цвета */
+    }
+
+      nav ul li a:hover {
+        color: #007bff; /* Цвет текста при наведении */
+      }
