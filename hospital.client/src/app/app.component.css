@@ -1,0 +1,230 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #0073e6;
+  padding: 10px 0;
+}
+
+.main-menu {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+  .main-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+
+    .main-menu ul li {
+      margin: 0 15px;
+    }
+
+      .main-menu ul li a {
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 20px; /* Увеличен размер шрифта */
+        padding: 12px 20px; /* Увеличены отступы */
+        background-color: #28a745; /* Зеленый фон */
+        transition: background-color 0.3s ease, color 0.3s ease;
+        border-radius: 5px;
+        text-align: center; /* Центрирование текста */
+      }
+
+        .main-menu ul li a:hover {
+          background-color: #218838; /* Темнее зеленый при наведении */
+          color: #ffffff;
+        }
+
+.navbar-brand {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 28px; /* Увеличен размер шрифта */
+  font-weight: bold;
+}
+
+.hero {
+  background-color: #e9ecef;
+  padding: 60px 0;
+}
+
+  .hero h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 36px; /* Увеличен размер шрифта */
+  }
+
+  .hero p {
+    color: #666;
+    font-size: 20px; /* Увеличен размер шрифта */
+  }
+
+main {
+  padding: 40px 0;
+}
+
+#services h3, #news h3 {
+  margin-bottom: 40px;
+  color: #0073e6;
+  font-size: 32px; /* Увеличен размер шрифта */
+}
+
+.service-item, .news-item {
+  background-color: #ffffff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  text-align: center; /* Центрирование текста */
+}
+
+  .service-item h4, .news-item h4 {
+    color: #0073e6;
+    font-size: 24px; /* Увеличен размер шрифта */
+  }
+
+footer {
+  background-color: #333;
+  color: #ffffff;
+  padding: 20px 0;
+}
+
+  footer a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #0073e6;
+  padding: 10px 0;
+}
+
+.main-menu {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+  .main-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+
+    .main-menu ul li {
+      margin: 0 15px;
+    }
+
+      .main-menu ul li a {
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 20px; /* Увеличен размер шрифта */
+        padding: 12px 20px; /* Увеличены отступы */
+        background-color: #28a745; /* Зеленый фон */
+        transition: background-color 0.3s ease, color 0.3s ease;
+        border-radius: 5px;
+        text-align: center; /* Центрирование текста */
+      }
+
+        .main-menu ul li a:hover {
+          background-color: #218838; /* Темнее зеленый при наведении */
+          color: #ffffff;
+        }
+
+.navbar-brand {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 28px; /* Увеличен размер шрифта */
+  font-weight: bold;
+}
+
+.hero {
+  background-color: #e9ecef;
+  padding: 60px 0;
+}
+
+  .hero h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 36px; /* Увеличен размер шрифта */
+  }
+
+  .hero p {
+    color: #666;
+    font-size: 20px; /* Увеличен размер шрифта */
+  }
+
+main {
+  padding: 40px 0;
+}
+
+#services h3, #news h3 {
+  margin-bottom: 40px;
+  color: #0073e6;
+  font-size: 32px; /* Увеличен размер шрифта */
+}
+
+.service-item, .news-item {
+  background-color: #ffffff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  text-align: center; /* Центрирование текста */
+}
+
+  .service-item h4, .news-item h4 {
+    color: #0073e6;
+    font-size: 24px; /* Увеличен размер шрифта */
+  }
+
+footer {
+  background-color: #333;
+  color: #ffffff;
+  padding: 20px 0;
+}
+
+  footer a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
