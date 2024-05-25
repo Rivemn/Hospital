@@ -1,4 +1,9 @@
 
+
+
+using Hospital.Server.Database;
+using Microsoft.EntityFrameworkCore;
+
 namespace Hospital.Server
 {
     public class Program
@@ -14,6 +19,14 @@ namespace Hospital.Server
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            //DbContext
+            builder.Services.AddDbContext<MyDbContext>(options => {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+                options.LogTo(Console.WriteLine);
+
+
+            }
+            );
             var app = builder.Build();
 
             app.UseDefaultFiles();
