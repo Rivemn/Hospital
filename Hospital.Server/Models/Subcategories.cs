@@ -3,11 +3,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Hospital.Server.Models
 {
-    public class Categories
+    public class Subcategories
     {
         [Key]
-        [Column("CategoryId")]
+        [Column("SubcategoryId")]
+        public int SubcategoryId { get; set; }
+        public string SubcategoryName { get; set; }
+
+        [ForeignKey("Categories")]
         public int CategoryId { get; set; }
-        public string CategoryName { get; set; }
     }
 }

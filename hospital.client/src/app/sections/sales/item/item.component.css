@@ -1,0 +1,63 @@
+.container {
+  max-width: 1200px; /* Максимальная ширина контейнера */
+  margin: 0 auto; /* Центрирование контейнера */
+  padding: 20px; /* Внутренние отступы */
+}
+
+.product-details {
+  padding: 40px 0; /* Отступы сверху и снизу */
+  background-color: #f8f9fa; /* Светлый фон для секции */
+}
+
+  .product-details h2 {
+    font-size: 32px; /* Размер шрифта заголовка */
+    margin-bottom: 30px; /* Нижний отступ заголовка */
+    color: #333; /* Цвет текста заголовка */
+  }
+
+  .product-details .text-center {
+    text-align: center; /* Выравнивание текста по центру */
+  }
+
+  .product-details .row {
+    display: flex; /* Flexbox для строк */
+    flex-wrap: wrap; /* Перенос элементов на следующую строку при необходимости */
+    justify-content: space-between; /* Равномерное распределение элементов */
+  }
+
+  .product-details .col-md-6 {
+    flex: 0 0 48%; /* Ширина колонки */
+    max-width: 48%; /* Максимальная ширина колонки */
+    box-sizing: border-box; /* Включение внутренних отступов в общую ширину */
+    margin-bottom: 20px; /* Нижний отступ для колонок */
+  }
+
+.product-image {
+  width: 100%; /* Ширина изображения */
+  border-radius: 8px; /* Скругленные углы */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легкая тень для изображения */
+}
+
+.product-details h4 {
+  font-size: 22px; /* Размер шрифта заголовка секции */
+  margin-bottom: 10px; /* Нижний отступ заголовка */
+  color: #007bff; /* Цвет текста заголовка */
+}
+
+.product-details p {
+  font-size: 16px; /* Размер шрифта текста */
+  color: #555; /* Цвет текста */
+}
+
+.product-details .btn-primary {
+  background-color: #0073e6; /* Синий цвет кнопки */
+  border: none; /* Убираем границу */
+  padding: 10px 20px; /* Внутренние отступы кнопки */
+  font-size: 16px; /* Размер шрифта кнопки */
+  border-radius: 5px; /* Скругленные углы кнопки */
+  transition: background-color 0.3s ease; /* Плавный переход для цвета фона */
+}
+
+  .product-details .btn-primary:hover {
+    background-color: #005bb5; /* Темно-синий цвет кнопки при наведении */
+  }

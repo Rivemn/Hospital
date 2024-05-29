@@ -22,8 +22,7 @@ namespace Hospital.Server.Controllers
             var categories = _context.Categories.Select(a => new
             {
                 CategoryName = a.CategoryName
-            })
-                       .ToList();
+            })  .ToList();
 
             return categories;
         }

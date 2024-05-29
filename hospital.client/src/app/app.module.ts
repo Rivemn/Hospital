@@ -13,6 +13,7 @@ import { MedicinesComponent } from './sections/medicines/medicines.component';
 import { AboutComponent } from './sections/about/about.component';
 import { SalesComponent } from './sections/sales/sales.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,10 +25,13 @@ import { SalesComponent } from './sections/sales/sales.component';
    
     AboutComponent,
          SalesComponent
+         
   ],
   imports: [
     BrowserModule, HttpClientModule,
     AppRoutingModule
+
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

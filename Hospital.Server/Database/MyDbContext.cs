@@ -13,7 +13,7 @@ namespace Hospital.Server.Database
 
 
         public DbSet<Categories> Categories { get; set; }
-   
+        public DbSet<Subcategories> Subcategories { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -1,15 +1,4 @@
-<main class="container">
-  <section id="categories">
-    <h3 class="text-center">Категории</h3>
-    <div class="row">
-      <div *ngIf="categories.length > 0; else noData">
-        <div *ngFor="let category of categories" class="col-md-4 category-item">
-          <h4>{{ category.categoryName }}</h4>
-        </div>
-      </div>
-    </div>
-    <ng-template #noData>
-      <p class="text-center">Нет доступных категорий.</p>
-    </ng-template>
-  </section>
-</main>
+
+  <router-outlet></router-outlet>
+
+
