@@ -31,7 +31,6 @@ import { SalesComponent } from './sections/sales/sales.component';
     BrowserModule, HttpClientModule,
     AppRoutingModule
 
-    
   ],
   providers: [],
   bootstrap: [AppComponent]

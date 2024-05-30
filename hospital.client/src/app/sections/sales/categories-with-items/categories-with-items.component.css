@@ -1,17 +1,12 @@
-/* Container */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
+
 
 /* Section */
-#product-catalog {
+#medical-products {
   padding: 40px 0;
   background-color: #f8f9fa;
 }
 
-  #product-catalog h3 {
+  #medical-products h3 {
     font-size: 28px;
     margin-bottom: 30px;
     color: #333;
@@ -92,5 +87,40 @@
   }
 
   .product-item p {
-    font-size: 16px
+    font-size: 16px;
+    color: #555;
   }
+
+.product-image {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.buy-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+  .buy-button:hover {
+    background-color: #0056b3;
+  }
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .col-md-3, .col-md-9 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}

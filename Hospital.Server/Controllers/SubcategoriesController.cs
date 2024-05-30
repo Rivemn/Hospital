@@ -1,6 +1,9 @@
-﻿using Hospital.Server.Database;
-using Microsoft.AspNetCore.Http;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Hospital.Server.Database;
+using Hospital.Server.Models;
 
 namespace Hospital.Server.Controllers
 {
@@ -8,7 +11,6 @@ namespace Hospital.Server.Controllers
     [ApiController]
     public class SubcategoriesController : ControllerBase
     {
-
         private readonly MyDbContext _context;
 
         public SubcategoriesController(MyDbContext context)
@@ -16,8 +18,16 @@ namespace Hospital.Server.Controllers
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
+        [HttpGet(Name = "subcategories")]
+        public IEnumerable<dynamic> GetCategories()
+        {
+            var subcategories = _context.Subcategories.Select(a => new
+            {
+                CategoryId = a.CategoryId,
+                SubcategoryName = a.SubcategoryName
+            }).ToList();
 
-
-
+            return subcategories;
+        }
     }
 }

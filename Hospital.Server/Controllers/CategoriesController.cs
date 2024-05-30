@@ -15,12 +15,12 @@ namespace Hospital.Server.Controllers
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-
         [HttpGet(Name = "categories")]
         public IEnumerable<dynamic> GetCategories()
         {
             var categories = _context.Categories.Select(a => new
             {
+                CategoryId = a.CategoryId,
                 CategoryName = a.CategoryName
             })  .ToList();
 

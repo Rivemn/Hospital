@@ -1,116 +1,21 @@
-
-  <main class="container">
-    <section id="product-catalog">
-      <h3 class="text-center">Каталог товаров</h3>
-      <div class="row">
-        <!-- Первая колонка -->
-        <div class="col-md-4 category-column">
-          <h4>Лекарства и профилактические средства</h4>
-          <ul>
-            <li><a href="#">Нервная система</a></li>
-            <li><a href="#">Обезболивающие</a></li>
-            <li><a href="#">Простуда и грипп</a></li>
-            <li><a href="#">Профилактика гриппа и простуды</a></li>
-            <li><a href="#">Аллергия</a></li>
-          </ul>
-          <a href="#" class="all-categories-link">Все категории</a>
-        </div>
-        <!-- Вторая колонка -->
-        <div class="col-md-4 category-column">
-          <h4>Витамины и минералы</h4>
-          <ul>
-            <li><a href="#">Витамины</a></li>
-            <li><a href="#">Минералы</a></li>
-            <li><a href="#">Рыбий жир</a></li>
-          </ul>
-          <a href="#" class="all-categories-link">Все категории</a>
-        </div>
-        <!-- Третья колонка -->
-        <div class="col-md-4 category-column">
-          <h4>Красота и уход</h4>
-          <ul>
-            <li><a href="#">Лицо</a></li>
-            <li><a href="#">Волосы</a></li>
-            <li><a href="#">Тело</a></li>
-            <li><a href="#">Дерматокосметика</a></li>
-            <li><a href="#">Декоративная косметика</a></li>
-          </ul>
-          <a href="#" class="all-categories-link">Все категории</a>
-        </div>
-        <!-- Четвертая колонка -->
-        <div class="col-md-4 category-column">
-          <h4>Спорт и здоровье</h4>
-          <ul>
-            <li><a href="#">Креатин</a></li>
-            <li><a href="#">Протеин</a></li>
-            <li><a href="#">Гейнер</a></li>
-            <li><a href="#">Спортивное питание</a></li>
-            <li><a href="#">Аминокислоты</a></li>
-          </ul>
-          <a href="#" class="all-categories-link">Все категории</a>
-        </div>
-        <!-- Пятая колонка -->
-        <div class="col-md-4 category-column">
-          <h4>Товары для детей и мам</h4>
-          <ul>
-            <li><a href="#">Для новорожденных</a></li>
-            <li><a href="#">Сборы в роддом</a></li>
-            <li><a href="#">Подгузники и пеленки</a></li>
-            <li><a href="#">Детское питание</a></li>
-            <li><a href="#">Купание и уход</a></li>
-          </ul>
-          <a href="#" class="all-categories-link">Все категории</a>
-        </div>
-        <!-- Шестая колонка -->
-        <div class="col-md-4 category-column">
-          <h4>Изделия медназначения</h4>
-          <ul>
-            <li><a href="#">Шприцы</a></li>
-            <li><a href="#">Перевязочные и фиксирующие материалы</a></li>
-            <li><a href="#">Одноразовые медицинские изделия</a></li>
-            <li><a href="#">Катетеры, иглы и системы</a></li>
-            <li><a href="#">Уход за больными</a></li>
-          </ul>
-          <a href="#" class="all-categories-link">Все категории</a>
-        </div>
-        <!-- Седьмая колонка -->
-        <div class="col-md-4 category-column">
-          <h4>Ортопедия и реабилитация</h4>
-          <ul>
-            <li><a href="#">Бандажи</a></li>
-            <li><a href="#">Тейпы</a></li>
-            <li><a href="#">Массажеры для тела</a></li>
-            <li><a href="#">Товары для реабилитации</a></li>
-            <li><a href="#">Компрессионный трикотаж</a></li>
-          </ul>
-          <a href="#" class="all-categories-link">Все категории</a>
-        </div>
-        <!-- Восьмая колонка -->
-        <div class="col-md-4 category-column">
-          <h4>Медицинская техника</h4>
-          <ul>
-            <li><a href="#">Глюкометры</a></li>
-            <li><a href="#">Тонометры</a></li>
-            <li><a href="#">Ингаляторы (небулайзеры)</a></li>
-            <li><a href="#">Термометры</a></li>
-            <li><a href="#">Пульсометры</a></li>
-          </ul>
-          <a href="#" class="all-categories-link">Все категории</a>
-        </div>
-        <!-- Девятая колонка -->
-        <div class="col-md-4 category-column">
-          <h4>Зоотовары</h4>
-          <ul>
-            <li><a href="#">Коты</a></li>
-            <li><a href="#">Собаки</a></li>
-            <li><a href="#">Грызуны</a></li>
-            <li><a href="#">Птицы</a></li>
-            <li><a href="#">Рыбы</a></li>
-          </ul>
-          <a href="#" class="all-categories-link">Все категории</a>
-        </div>
+<main class="container">
+  <section id="product-catalog">
+    <h3 class="text-center">Каталог товаров</h3>
+    <div class="row">
+      <!-- Первая колонка -->
+      <div *ngFor="let category of categories" class="col-md-4 category-column">
+        <h4>{{ category.categoryName }}</h4>
+        <ul>
+          <li *ngFor="let subcategory of getSubcategoriesByCategoryId(category.categoryId)">
+            {{ subcategory.subcategoryName }}
+          </li>
+        </ul>
+        <a href="#" class="all-categories-link">Все категории</a>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+</main>
+
+
 
 

@@ -13,7 +13,7 @@ const routes: Routes = [
       { path: 'categories', component: CategoriesComponent },
       { path: 'categories_with_items', component: CategoriesWithItemsComponent },
       { path: 'item', component: ItemComponent },
-      { path: '', redirectTo: 'item', pathMatch: 'full' }  // Редирект на страницу категорий с товарами по умолчанию
+      { path: '', redirectTo: 'categories', pathMatch: 'full' }  // Редирект на страницу категорий с товарами по умолчанию
     ]
   }
 ];
@@ -21,5 +21,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
+  
 })
 export class SalesRoutingModule { }
