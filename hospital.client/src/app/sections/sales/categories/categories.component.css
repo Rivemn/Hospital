@@ -1,5 +1,4 @@
 
-
 /* Section */
 #product-catalog {
   padding: 40px 0;
@@ -10,11 +9,6 @@
     margin-bottom: 30px;
     color: #333;
   }
-
-/* Text Center */
-.text-center {
-  text-align: center;
-}
 
 /* Row */
 .row {

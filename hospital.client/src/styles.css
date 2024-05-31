@@ -4,3 +4,7 @@
   padding: 20px;
   margin-bottom: 380px; /* Добавляем отступ снизу для контейнера */
 }
+/* Text Center */
+.text-center {
+  text-align: center;
+}

@@ -8,7 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ServicesComponent } from './sections/services/services.component';
 import { DoctorsComponent } from './sections/doctors/doctors.component';
-import { MedicinesComponent } from './sections/medicines/medicines.component';
+
 
 import { AboutComponent } from './sections/about/about.component';
 import { SalesComponent } from './sections/sales/sales.component';
@@ -21,8 +21,6 @@ import { SalesComponent } from './sections/sales/sales.component';
     FooterComponent,
     ServicesComponent,
     DoctorsComponent,
-    MedicinesComponent,
-   
     AboutComponent,
          SalesComponent
          
