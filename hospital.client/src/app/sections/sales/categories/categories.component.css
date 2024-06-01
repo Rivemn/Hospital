@@ -11,8 +11,12 @@
   }
 
 
+.category-column-link {
+  text-decoration: none; /* Убирает подчеркивание у ссылки */
+  color: inherit; /* Наследует цвет текста */
+  display: block; /* Делает ссылку блочным элементом */
+}
 
-/* Category Column */
 .category-column {
   background-color: #fff;
   padding: 20px;
@@ -21,35 +25,36 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-  .category-column:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
+.category-column-link:hover .category-column {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
 
-  .category-column h4 {
-    font-size: 22px;
-    margin-bottom: 10px;
-    color: #007bff;
-  }
+.category-column h4 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #007bff;
+}
 
-  .category-column ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
+.category-column ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
 
-    .category-column ul li {
-      margin-bottom: 5px;
-    }
+.category-column ul li {
+  margin-bottom: 5px;
+}
 
-      .category-column ul li a {
-        text-decoration: none;
-        color: #555;
-      }
+.category-column ul li a {
+  text-decoration: none;
+  color: #555;
+}
 
-        .category-column ul li a:hover {
-          text-decoration: underline;
-        }
+.category-column ul li a:hover {
+  text-decoration: underline;
+}
+
 
 .all-categories-link {
   display: block;
@@ -68,3 +73,8 @@
     max-width: 100%;
   }
 }
+
+
+
+
+

@@ -33,7 +33,7 @@ namespace Hospital.Server.Controllers.SalesController
 
             var items = subcategory.Items.Select(item => new
             {
-                item.ItemId,
+               
                 item.ItemName,
                 item.ItemDescription,
                 item.UnitPrice,

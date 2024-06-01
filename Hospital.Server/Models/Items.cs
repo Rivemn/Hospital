@@ -38,7 +38,6 @@ namespace Hospital.Server.Models
 
         public string Photo { get; set; }
 
-        
-       
+            
     }
 }

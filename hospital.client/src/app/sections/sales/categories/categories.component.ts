@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoriesService } from '../service/categories.service';
+import { SubcategoriesService } from '../service/subcategories.service';
+
+
 import { Subcategories } from '../models/Subcategories';
 
 import { Categories } from '../models/Categories';
@@ -11,12 +14,16 @@ import { Categories } from '../models/Categories';
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent implements OnInit {
+  selectedSubcategory: string|undefined;
+
   categories: Categories[] = [];
   subcategories: Subcategories[] = [];
-  isLoading = true;
+
   errorMessage: string | null = null;
 
-  constructor(private categoryService: CategoriesService) { }
+  constructor(private categoryService: CategoriesService,
+    private subcategoryService: SubcategoriesService
+  ) { }
 
   ngOnInit(): void {
     this.categoryService.getCategories().subscribe(
@@ -26,20 +33,20 @@ export class CategoriesComponent implements OnInit {
       },
       (error) => {
         this.errorMessage = error;
-        this.isLoading = false;
+        
         console.error('Error fetching categories:', error);
       }
     );
 
-    this.categoryService.getSubcategories().subscribe(
+    this.subcategoryService.getSubcategories().subscribe(
       (subcategories) => {
         this.subcategories = subcategories;
-        this.isLoading = false;
+       
         console.log('Subcategories:', this.subcategories);
       },
       (error) => {
         this.errorMessage = error;
-        this.isLoading = false;
+        
         console.error('Error fetching subcategories:', error);
       }
     );

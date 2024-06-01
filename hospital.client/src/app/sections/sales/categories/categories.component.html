@@ -3,16 +3,18 @@
     <h3 class="text-center">Каталог товаров</h3>
     <div class="row">
       <!-- Первая колонка -->
-      <div *ngFor="let category of categories" class="col-md-4 category-column">
-        <h4>{{ category.categoryName }}</h4>
-        <ul>
-          <li *ngFor="let subcategory of getSubcategoriesByCategoryId(category.categoryId)">
-            {{ subcategory.subcategoryName }}
-          </li>
-        </ul>
-      
-      </div>
+      <a *ngFor="let category of categories" routerLink="/sales/categories_with_items" class="col-md-4 category-column-link">
+        <div class="category-column">
+          <h4>{{ category.categoryName }}</h4>
+          <ul>
+            <li *ngFor="let subcategory of getSubcategoriesByCategoryId(category.categoryId)">
+              {{ subcategory.subcategoryName }}
+            </li>
+          </ul>
+        </div>
+      </a>
     </div>
+
   </section>
 </main>
 

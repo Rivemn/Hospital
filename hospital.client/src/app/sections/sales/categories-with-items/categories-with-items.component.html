@@ -5,11 +5,12 @@
       <div class="row">
         <!-- Категории -->
         <div class="col-md-3 category-item">
-          <h4>Категории</h4>
+          <h4>{{selectedCategory}}</h4>
+         
           <ul>
-            <li><a href="#">Категория 1</a></li>
-            <li><a href="#">Категория 2</a></li>
-            <li><a href="#">Категория 3</a></li>
+            <li *ngFor="let subcategory of subcategories">
+              <a href="#">{{ subcategory.subcategoryName }}</a>
+            </li>
           </ul>
         </div>
         <!-- Товары -->

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { CategoriesService } from '../service/categories.service';
+
+import { SubcategoriesService } from '../service/subcategories.service';
 import { Subcategories } from '../models/Subcategories';
 
-import { Categories } from '../models/Categories';
+
 @Component({
   selector: 'app-categories-with-items',
   templateUrl: './categories-with-items.component.html',
@@ -10,28 +11,19 @@ import { Categories } from '../models/Categories';
 })
 export class CategoriesWithItemsComponent {
 
+  selectedCategory: string ='Medicines and Preventive Products';
 
-  categories: Categories[] = [];
   subcategories: Subcategories[] = [];
   isLoading = true;
   errorMessage: string | null = null;
 
-  constructor(private categoryService: CategoriesService) { }
+  constructor(
+    private subcategoryService: SubcategoriesService
+  ) { }
 
   ngOnInit(): void {
-    this.categoryService.getCategories().subscribe(
-      (categories) => {
-        this.categories = categories;
-
-      },
-      (error) => {
-        this.errorMessage = error;
-        this.isLoading = false;
-        console.error('Error fetching categories:', error);
-      }
-    );
-
-    this.categoryService.getSubcategories().subscribe(
+  
+    this.subcategoryService.getSubcategoriesByCategoryName(this.selectedCategory).subscribe(
       (subcategories) => {
         this.subcategories = subcategories;
         this.isLoading = false;
