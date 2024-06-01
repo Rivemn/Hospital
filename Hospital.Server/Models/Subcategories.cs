@@ -8,9 +8,14 @@ namespace Hospital.Server.Models
         [Key]
         [Column("SubcategoryId")]
         public int SubcategoryId { get; set; }
+
+        [Column("SubcategoryName")]
         public string SubcategoryName { get; set; }
 
         [ForeignKey("Categories")]
         public int CategoryId { get; set; }
+        public Categories Categories { get; set; }
+
+        public ICollection<Items> Items { get; set; }
     }
 }

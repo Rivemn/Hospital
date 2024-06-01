@@ -9,5 +9,8 @@ namespace Hospital.Server.Models
         [Column("CategoryId")]
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
+
+        // Навигационное свойство для связи с подкатегориями
+        public ICollection<Subcategories> Subcategories { get; set; }
     }
 }

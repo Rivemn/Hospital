@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Hospital.Server.Controllers
+namespace Hospital.Server.Controllers.SalesController
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -20,9 +20,9 @@ namespace Hospital.Server.Controllers
         {
             var categories = _context.Categories.Select(a => new
             {
-                CategoryId = a.CategoryId,
-                CategoryName = a.CategoryName
-            })  .ToList();
+                a.CategoryId,
+                a.CategoryName
+            }).ToList();
 
             return categories;
         }

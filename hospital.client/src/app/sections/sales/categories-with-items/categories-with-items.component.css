@@ -14,13 +14,6 @@
 
 
 
-/* Row */
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
 /* Column */
 .col-md-3, .col-md-9 {
   box-sizing: border-box;

@@ -5,7 +5,6 @@ namespace Hospital.Server.Models
 {
     public class Items
     {
-
         [Key]
         [Column("ItemID")]
         public int ItemId { get; set; }
@@ -29,14 +28,17 @@ namespace Hospital.Server.Models
         [MaxLength(50)]
         public string CountryOfOrigin { get; set; }
 
-        [ForeignKey("Subcategory")]
-        public int? SubcategoryId { get; set; }
+        [Required]
+        [ForeignKey("SubcategoryId")]
+        public int SubcategoryId { get; set; }
+        public Subcategories Subcategory { get; set; }
 
         [MaxLength(100)]
         public string Manufacturer { get; set; }
 
-        public Subcategories Subcategories { get; set; }
+        public string Photo { get; set; }
 
-
+        
+       
     }
 }

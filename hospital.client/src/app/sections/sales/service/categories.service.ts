@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { Subcategories } from '../../models/Subcategories';
-import { Categories } from '../../models/Categories';
+import { Subcategories } from '../models/Subcategories';
+import { Categories } from '../models/Categories';
 
 
 

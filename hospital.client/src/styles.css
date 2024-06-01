@@ -8,3 +8,15 @@
 .text-center {
   text-align: center;
 }
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.col-md-4 {
+  flex: 0 0 32%; /* Ширина колонки */
+  max-width: 32%; /* Максимальная ширина колонки */
+  box-sizing: border-box; /* Включение внутренних отступов в общую ширину */
+  margin-bottom: 20px; /* Нижний отступ для колонок */
+}

@@ -10,20 +10,7 @@
     color: #333;
   }
 
-/* Row */
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
 
-/* Column */
-.col-md-4 {
-  flex: 0 0 32%;
-  max-width: 32%;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-}
 
 /* Category Column */
 .category-column {

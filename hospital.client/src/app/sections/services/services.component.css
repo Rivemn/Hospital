@@ -11,22 +11,7 @@
     color: #333; /* Цвет текста заголовка */
   }
 
-.text-center {
-  text-align: center; /* Выравнивание текста по центру */
-}
 
-.row {
-  display: flex; /* Flexbox для строк */
-  flex-wrap: wrap; /* Перенос элементов на следующую строку при необходимости */
-  justify-content: space-between; /* Равномерное распределение элементов */
-}
-
-.col-md-4 {
-  flex: 0 0 32%; /* Ширина колонки */
-  max-width: 32%; /* Максимальная ширина колонки */
-  box-sizing: border-box; /* Включение внутренних отступов в общую ширину */
-  margin-bottom: 20px; /* Нижний отступ для колонок */
-}
 
 .service-item {
   background-color: #fff; /* Белый фон для карточки */
