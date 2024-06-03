@@ -17,5 +17,6 @@ namespace Hospital.Server.Models
         public Categories Categories { get; set; }
 
         public ICollection<Items> Items { get; set; }
+
     }
 }

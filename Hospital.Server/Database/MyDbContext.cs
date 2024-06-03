@@ -16,6 +16,11 @@ namespace Hospital.Server.Database
         public DbSet<Subcategories> Subcategories { get; set; }
         public DbSet<Items> Items { get; set; }
 
+        public DbSet<Customers> Customers { get; set; }
+        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
+        public DbSet<ShoppingCartItems> ShoppingCartItems { get; set; }
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.LogTo(Console.WriteLine);
