@@ -1,12 +1,10 @@
-
 <main class="container">
   <section id="product-catalog">
     <h3 class="text-center">Каталог товаров</h3>
     <div class="row">
       <!-- Категории -->
       <div class="col-md-3 category-item">
-        <h4>{{selectedCategory}}</h4>
-
+        <h4>{{ selectedCategory }}</h4>
         <ul>
           <li *ngFor="let subcategory of subcategories">
             <input type="checkbox"
@@ -17,15 +15,20 @@
           </li>
         </ul>
       </div>
-      <!-- Первая колонка -->
-      <a *ngFor="let item of items" routerLink="/sales/item" class="col-md-9 products product-column-link">
-        <img [src]="item.photo" alt="{{item.itemName}}" class="product-image">
-        <h4>{{ item.itemName }}</h4>
-        <p>{{ item.itemDescription }}</p>
-        <p class="price">{{ item.unitPrice }} грн</p>
-        <button class="buy-button">Купить</button>
-      </a>
+      <!-- Товары -->
+      <div class="col-md-9 products">
+        <div class="product-list">
+          <div *ngFor="let item of items" class="col-md-4 product-item">
+            <a [routerLink]="['/sales/item']" class="product-column-link" (click)="onItemClick(item.itemName)">
+              <img [src]="item.photo" alt="{{ item.itemName }}" class="product-image">
+              <h4>{{ item.itemName }}</h4>
+              <p>{{ item.itemDescription }}</p>
+              <p class="price">{{ item.unitPrice }} грн</p>
+              <button class="buy-button">Купить</button>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 </main>
-

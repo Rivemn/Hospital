@@ -26,7 +26,7 @@ export class ItemsService {
 
   getItemsBySubcategoryName(subcategoryName: string): Observable<any> {
   
-    return this.http.get<any>(`${this.itemsUrl}/Antibiotics`).pipe(
+    return this.http.get<any>(`${this.itemsUrl}/${subcategoryName}`).pipe(
       tap(items => console.log(`Fetched items for ${subcategoryName}:`, items)),
       catchError(this.errorHandler.handleError)
     );

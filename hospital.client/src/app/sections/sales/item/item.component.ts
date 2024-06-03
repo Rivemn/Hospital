@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-
+import { SharedService } from '../service/shared.service';
 import { SubcategoriesService } from '../service/subcategories.service';
 import { Subcategories } from '../models/Subcategories';
 import { ItemsService } from '../service/items.service';
@@ -19,12 +19,18 @@ export class ItemComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private itemService: ItemsService
+    private itemService: ItemsService,
+    private sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
-   
-    this.loadItemDetails();
+    this.sharedService.selectedItem$.subscribe(itemName => {
+      if (itemName) {
+        this.itemName = itemName;
+        // Load item details based on itemName
+        this.loadItemDetails();
+      }
+    });
   }
 
   private loadItemDetails(): void {

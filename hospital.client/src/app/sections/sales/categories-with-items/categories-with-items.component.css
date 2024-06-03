@@ -1,18 +1,14 @@
-
-
 /* Section */
-#medical-products {
+#product-catalog {
   padding: 40px 0;
   background-color: #f8f9fa;
 }
 
-  #medical-products h3 {
+  #product-catalog h3 {
     font-size: 28px;
     margin-bottom: 30px;
     color: #333;
   }
-
-
 
 /* Column */
 .col-md-3, .col-md-9 {
@@ -46,14 +42,20 @@
     margin-bottom: 5px;
   }
 
-    .category-item ul li a {
-      text-decoration: none;
-      color: #555;
+    .category-item ul li input {
+      margin-right: 5px;
     }
 
-      .category-item ul li a:hover {
-        text-decoration: underline;
-      }
+    .category-item ul li label {
+      cursor: pointer;
+    }
+
+/* Product List */
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 
 /* Product Item */
 .product-item {
@@ -62,7 +64,9 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin-bottom: 20px;
+  flex: 0 0 calc(33.333% - 20px); /* Adjust width of items */
+  max-width: calc(33.333% - 20px);
+  box-sizing: border-box;
 }
 
   .product-item:hover {
@@ -83,6 +87,7 @@
 
 .product-image {
   max-width: 100%;
+  height: auto;
   border-radius: 8px;
   margin-bottom: 10px;
 }
@@ -113,9 +118,37 @@
     flex: 0 0 100%;
     max-width: 100%;
   }
+
+  .product-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }
+
 .product-column-link {
   text-decoration: none; /* Убирает подчеркивание у ссылки */
   color: inherit; /* Наследует цвет текста */
   display: block; /* Делает ссылку блочным элементом */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-bottom: 380px; /* Добавляем отступ снизу для контейнера */
+}
+
+/* Text Center */
+.text-center {
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-md-4 {
+  box-sizing: border-box; /* Включение внутренних отступов в общую ширину */
+  margin-bottom: 20px; /* Нижний отступ для колонок */
 }

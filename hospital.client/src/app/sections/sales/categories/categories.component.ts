@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoriesService } from '../service/categories.service';
 import { SubcategoriesService } from '../service/subcategories.service';
-
+import { SharedService } from '../service/shared.service';
 
 import { Subcategories } from '../models/Subcategories';
 
@@ -22,7 +22,8 @@ export class CategoriesComponent implements OnInit {
   errorMessage: string | null = null;
 
   constructor(private categoryService: CategoriesService,
-    private subcategoryService: SubcategoriesService
+    private subcategoryService: SubcategoriesService,
+    private sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
@@ -52,10 +53,13 @@ export class CategoriesComponent implements OnInit {
     );
   }
 
-
-
   getSubcategoriesByCategoryId(categoryId: number): Subcategories[] {
     return this.subcategories.filter(subcategory => subcategory.categoryId === categoryId);
+  }
+  onCategoryClick(categoryName: string) {
+
+    this.sharedService.setSelectedCategory(categoryName);
+    console.log('Selected Category:', categoryName);
   }
 }
 

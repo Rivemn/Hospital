@@ -4,7 +4,7 @@ import { SubcategoriesService } from '../service/subcategories.service';
 import { Subcategories } from '../models/Subcategories';
 import { ItemsService } from '../service/items.service';
 import { Items } from '../models/Items';
-
+import { SharedService } from '../service/shared.service';
 @Component({
   selector: 'app-categories-with-items',
   templateUrl: './categories-with-items.component.html',
@@ -12,7 +12,7 @@ import { Items } from '../models/Items';
 })
 export class CategoriesWithItemsComponent {
 
-  @Input() selectedCategory: string ='Medicines and Preventive Products';
+  selectedCategory: string ='Medicines and Preventive Products';
   selectedSubcategories: Set<string> = new Set<string>();
   items: Items[] = [];
   subcategories: Subcategories[] = [];
@@ -21,11 +21,16 @@ export class CategoriesWithItemsComponent {
 
   constructor(
     private subcategoryService: SubcategoriesService,
-    private itemService: ItemsService
+    private itemService: ItemsService,
+    private sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
-  
+   this.sharedService.selectedCategory$.subscribe(categoryName => {
+      if (categoryName) {
+        this.selectedCategory = categoryName;
+      }
+    });
     this.subcategoryService.getSubcategoriesByCategoryName(this.selectedCategory).subscribe(
       (subcategories) => {
         this.subcategories = subcategories;
@@ -38,6 +43,7 @@ export class CategoriesWithItemsComponent {
         console.error('Error fetching subcategories:', error);
       }
     );
+   
   }
 
 
@@ -73,4 +79,11 @@ export class CategoriesWithItemsComponent {
       );
     });
   }
+  onItemClick(itemName: string) {
+    this.sharedService.selectItem(itemName);
+  }
+
+
+
+
 }
