@@ -1,4 +1,5 @@
 ﻿using Hospital.Server.Database;
+using Hospital.Server.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -16,7 +17,25 @@ namespace Hospital.Server.Controllers.SalesController
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
+        [HttpGet(Name = "items")]
+        public IEnumerable<dynamic> GetItems()
+        {
+            var items = _context.Items.Select(item => new
+            {
+                item.ItemId,
+                item.ItemName,
+                item.ItemDescription,
+                item.UnitPrice,
+                item.QuantityAvailable,
+                item.ReleaseForm,
+                item.CountryOfOrigin,
+                item.SubcategoryId,
+                item.Manufacturer,
+                item.Photo
+            }).ToList();
 
+            return items;
+        }
 
         [HttpGet("{subcategoryName}")]
         public ActionResult<IEnumerable<dynamic>> GetItemsBySubcategoryName(string subcategoryName)
@@ -33,13 +52,15 @@ namespace Hospital.Server.Controllers.SalesController
 
             var items = subcategory.Items.Select(item => new
             {
-               
+
+                item.ItemId,
                 item.ItemName,
                 item.ItemDescription,
                 item.UnitPrice,
                 item.QuantityAvailable,
                 item.ReleaseForm,
                 item.CountryOfOrigin,
+                item.SubcategoryId,
                 item.Manufacturer,
                 item.Photo
             }).ToList();
@@ -48,7 +69,33 @@ namespace Hospital.Server.Controllers.SalesController
         }
 
 
+        [HttpGet("item/{itemName}")]
+        [Produces("application/json")]
+        public ActionResult<dynamic> GetItemByName(string itemName)
+        {
+            var item = _context.Items
+                .Where(i => i.ItemName == itemName)
+                .FirstOrDefault();
 
+            if (item == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(new
+            {
+                item.ItemId,
+                item.ItemName,
+                item.ItemDescription,
+                item.UnitPrice,
+                item.QuantityAvailable,
+                item.ReleaseForm,
+                item.CountryOfOrigin,
+                item.SubcategoryId,
+                item.Manufacturer,
+                item.Photo
+            });
+        }
 
     }
 }

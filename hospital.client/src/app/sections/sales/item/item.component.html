@@ -1,20 +1,27 @@
-<div class="container product-details">
-  <h2 class="text-center">Название лекарства</h2>
+<div class="container product-details" *ngIf="item">
+  <h2 class="text-center">{{ item.itemName }}</h2>
   <div class="row">
     <div class="col-md-6">
-      <img src="path/to/product-image.jpg" alt="Название лекарства" class="img-fluid product-image">
+      <img [src]="item.photo" [alt]="item.itemName" class="img-fluid product-image">
     </div>
     <div class="col-md-6">
       <h4>Описание</h4>
-      <p>Здесь находится подробное описание лекарства, его назначение и способ применения.</p>
-      <h4>Состав</h4>
-      <p>Перечень активных веществ и компонентов.</p>
-      <h4>Противопоказания</h4>
-      <p>Список противопоказаний и побочных эффектов.</p>
+      <p>{{ item.itemDescription }}</p>
       <h4>Цена</h4>
-      <p>Цена за упаковку: <strong>1000 руб.</strong></p>
+      <p>Цена за упаковку: <strong>{{ item.unitPrice }} грн.</strong></p>
+      <p>В наличии: {{ item.quantityAvailable }}</p>
+      <h4>Состав</h4>
+      <p>{{ item.releaseForm }}</p>
+      <h4>Страна происхождения</h4>
+      <p>{{ item.countryOfOrigin }}</p>
+      <h4>Производитель</h4>
+      <p>{{ item.manufacturer }}</p>
       <button class="btn btn-primary">Купить</button>
     </div>
   </div>
 </div>
+
+<div *ngIf="isLoading">Loading...</div>
+<div *ngIf="errorMessage">{{ errorMessage }}</div>
+
 

@@ -1,11 +1,13 @@
 export interface Items {
-
+  itemId: number;
   itemName: string;
-  itemDescription?: string;
+  itemDescription: string;
   unitPrice: number;
   quantityAvailable: number;
-  releaseForm?: string;
-  countryOfOrigin?: string;
-  manufacturer?: string;
+  releaseForm: string;
+  countryOfOrigin: string;
+  subcategoryId: number;
+  manufacturer: string;
   photo?: string;
 }
+

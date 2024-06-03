@@ -114,3 +114,8 @@
     max-width: 100%;
   }
 }
+.product-column-link {
+  text-decoration: none; /* Убирает подчеркивание у ссылки */
+  color: inherit; /* Наследует цвет текста */
+  display: block; /* Делает ссылку блочным элементом */
+}

@@ -36,7 +36,7 @@ namespace Hospital.Server.Models
         [MaxLength(100)]
         public string Manufacturer { get; set; }
 
-        public string Photo { get; set; }
+        public string? Photo { get; set; }
 
             
     }
