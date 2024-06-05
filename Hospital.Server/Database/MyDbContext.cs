@@ -1,4 +1,5 @@
 ﻿using Hospital.Server.Models;
+using Hospital.Server.Models.sales;
 using Microsoft.EntityFrameworkCore;
 
 

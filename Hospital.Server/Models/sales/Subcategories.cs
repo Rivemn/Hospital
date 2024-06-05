@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace Hospital.Server.Models
+namespace Hospital.Server.Models.sales
 {
     public class Subcategories
     {

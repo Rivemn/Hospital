@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace Hospital.Server.Models
+namespace Hospital.Server.Models.sales
 {
     public class Items
     {
@@ -38,6 +38,6 @@ namespace Hospital.Server.Models
 
         public string? Photo { get; set; }
 
-            
+
     }
 }
