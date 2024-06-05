@@ -6,7 +6,7 @@ import { ItemsService } from '../service/items.service';
 import { Items } from '../models/Items';
 import { SharedService } from '../service/shared.service';
 @Component({
-  selector: 'app-categories-with-items',
+  selector: 'app-sales-categories-with-items',
   templateUrl: './categories-with-items.component.html',
   styleUrl: './categories-with-items.component.css'
 })
@@ -52,7 +52,6 @@ export class CategoriesWithItemsComponent {
     return this.subcategories.filter(subcategory => subcategory.categoryId === categoryId);
   }
 
-
   onCheckboxChange(event: Event, subcategory: Subcategories): void {
     const checkbox = event.target as HTMLInputElement;
     if (checkbox.checked) {
@@ -82,7 +81,6 @@ export class CategoriesWithItemsComponent {
   onItemClick(itemName: string) {
     this.sharedService.selectItem(itemName);
   }
-
 
 
 

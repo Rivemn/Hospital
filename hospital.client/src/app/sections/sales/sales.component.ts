@@ -4,7 +4,7 @@ interface Categories {
   categoryName: string;
 }
 @Component({
-  selector: 'app-sales',
+  selector: 'app-sales-root',
   templateUrl: './sales.component.html'
 
 })

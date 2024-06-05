@@ -4,23 +4,26 @@ import { SharedService } from '../service/shared.service';
 import { SubcategoriesService } from '../service/subcategories.service';
 import { Subcategories } from '../models/Subcategories';
 import { ItemsService } from '../service/items.service';
+import { CartService } from '../service/cart.service';
 import { Items } from '../models/Items';
 import { ActivatedRoute } from '@angular/router';
 @Component({
-  selector: 'app-item',
+  selector: 'app-sales-item',
   templateUrl: './item.component.html',
   styleUrl: './item.component.css'
 })
 export class ItemComponent implements OnInit {
+
   itemName: string = 'Amoxicillin';
   item: Items | null = null;
   errorMessage: string | null = null;
   isLoading: boolean = true;
-
+  buttonName: string = 'добавить в корзину';
   constructor(
     private route: ActivatedRoute,
     private itemService: ItemsService,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private cartService: CartService,
   ) { }
 
   ngOnInit(): void {
@@ -45,4 +48,11 @@ export class ItemComponent implements OnInit {
       }
     );
   }
+ 
+  addItemToCart(item: Items) {
+
+    this.cartService.addToCart(item);
+    this.buttonName = 'добавлено в корзину';
+    }
+  
 }

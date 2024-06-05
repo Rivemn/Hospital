@@ -16,7 +16,7 @@
       <p>{{ item.countryOfOrigin }}</p>
       <h4>Производитель</h4>
       <p>{{ item.manufacturer }}</p>
-      <button class="btn btn-primary">Купить</button>
+      <button class="btn btn-primary" (click)="addItemToCart(item) ">{{buttonName}}</button>
     </div>
   </div>
 </div>

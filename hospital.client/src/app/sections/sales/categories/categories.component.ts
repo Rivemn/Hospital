@@ -9,7 +9,7 @@ import { Categories } from '../models/Categories';
 
 
 @Component({
-  selector: 'app-categories',
+  selector: 'app-sales-categories',
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.css']
 })

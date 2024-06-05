@@ -12,6 +12,7 @@ import { DoctorsComponent } from './sections/doctors/doctors.component';
 
 import { AboutComponent } from './sections/about/about.component';
 import { SalesComponent } from './sections/sales/sales.component';
+import { SalesModule } from './sections/sales/sales.module';
 
 
 @NgModule({
@@ -21,15 +22,17 @@ import { SalesComponent } from './sections/sales/sales.component';
     FooterComponent,
     ServicesComponent,
     DoctorsComponent,
-    AboutComponent,
-         SalesComponent
+    AboutComponent
+       
+         
          
   ],
   imports: [
     BrowserModule, HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule, SalesModule
 
   ],
+ 
   providers: [],
   bootstrap: [AppComponent]
 })

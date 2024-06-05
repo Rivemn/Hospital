@@ -1,0 +1,33 @@
+<div class="container">
+  <h2 class="text-center">Корзина</h2>
+  <div *ngIf="cartItems.length === 0" class="alert alert-info text-center">
+    Ваша корзина пуста.
+  </div>
+  <div *ngIf="cartItems.length > 0">
+    <div class="cart-item" *ngFor="let item of cartItems">
+      <div class="row">
+        <div class="col-md-3">
+          <img [src]="item.photo" [alt]="item.itemName" class="img-fluid">
+        </div>
+        <div class="col-md-3">
+          <h4>{{ item.itemName }}</h4>
+          <p>{{ item.itemDescription }}</p>
+        </div>
+        <div class="col-md-2">
+          <p><strong>{{ item.unitPrice }} грн</strong></p>
+        </div>
+        <div class="col-md-2">
+          <p>Количество: {{ item.quantityAvailable }}</p>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-danger" (click)="removeFromCart(item.itemId)">Удалить</button>
+        </div>
+      </div>
+      <hr>
+    </div>
+    <div class="text-center">
+      <button class="btn btn-danger" (click)="clearCart()">Очистить корзину</button>
+    </div>
+  </div>
+</div>
+
