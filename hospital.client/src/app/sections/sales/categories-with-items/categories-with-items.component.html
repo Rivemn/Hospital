@@ -24,7 +24,8 @@
               <h4>{{ item.itemName }}</h4>
               <p>{{ item.itemDescription }}</p>
               <p class="price">{{ item.unitPrice }} грн</p>
-              <button class="buy-button">Купить</button>
+              <button class="buy-button" (click)="addItemToCart(item) ">{{buttonName}}</button>
+             
             </a>
           </div>
         </div>

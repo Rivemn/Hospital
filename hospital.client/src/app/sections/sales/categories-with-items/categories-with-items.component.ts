@@ -5,13 +5,14 @@ import { Subcategories } from '../models/Subcategories';
 import { ItemsService } from '../service/items.service';
 import { Items } from '../models/Items';
 import { SharedService } from '../service/shared.service';
+import { CartService } from '../service/cart.service';
 @Component({
   selector: 'app-sales-categories-with-items',
   templateUrl: './categories-with-items.component.html',
   styleUrl: './categories-with-items.component.css'
 })
 export class CategoriesWithItemsComponent {
-
+  buttonName: string = 'добавить в корзину';
   selectedCategory: string ='Medicines and Preventive Products';
   selectedSubcategories: Set<string> = new Set<string>();
   items: Items[] = [];
@@ -22,7 +23,8 @@ export class CategoriesWithItemsComponent {
   constructor(
     private subcategoryService: SubcategoriesService,
     private itemService: ItemsService,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private cartService: CartService,
   ) { }
 
   ngOnInit(): void {
@@ -82,6 +84,10 @@ export class CategoriesWithItemsComponent {
     this.sharedService.selectItem(itemName);
   }
 
+  addItemToCart(item: Items) {
 
+    this.cartService.addToCart(item);
+    this.buttonName = 'добавлено в корзину';
+  }
 
 }

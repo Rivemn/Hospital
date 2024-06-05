@@ -4,30 +4,33 @@
     Ваша корзина пуста.
   </div>
   <div *ngIf="cartItems.length > 0">
-    <div class="cart-item" *ngFor="let item of cartItems">
+    <div class="cart-item" *ngFor="let cartItem of cartItems">
       <div class="row">
         <div class="col-md-3">
-          <img [src]="item.photo" [alt]="item.itemName" class="img-fluid">
+          <img [src]="cartItem.item.photo" [alt]="cartItem.item.itemName" class="img-fluid">
         </div>
         <div class="col-md-3">
-          <h4>{{ item.itemName }}</h4>
-          <p>{{ item.itemDescription }}</p>
+          <h4>{{ cartItem.item.itemName }}</h4>
+          <p>{{ cartItem.item.itemDescription }}</p>
         </div>
         <div class="col-md-2">
-          <p><strong>{{ item.unitPrice }} грн</strong></p>
+          <p><strong>{{ cartItem.item.unitPrice * cartItem.quantity }} грн</strong></p>
         </div>
         <div class="col-md-2">
-          <p>Количество: {{ item.quantityAvailable }}</p>
+          <label for="quantity-{{cartItem.item.itemId}}">Количество:</label>
+          <input type="number" id="quantity-{{cartItem.item.itemId}}" [(ngModel)]="cartItem.quantity" [max]="cartItem.item.quantityAvailable" (change)="validateQuantity(cartItem); updateCart()">
+          <p>Доступно на складе: {{ cartItem.item.quantityAvailable }}</p>
         </div>
         <div class="col-md-2">
-          <button class="btn btn-danger" (click)="removeFromCart(item.itemId)">Удалить</button>
+          <button class="btn btn-danger" (click)="removeFromCart(cartItem.item.itemId)">Удалить</button>
         </div>
       </div>
       <hr>
     </div>
     <div class="text-center">
+      <h3>Общая сумма: {{ totalPrice }} грн</h3>
       <button class="btn btn-danger" (click)="clearCart()">Очистить корзину</button>
+      <button class="btn btn-success" [routerLink]="['/sales/checkout']">Оформить заказ</button>
     </div>
   </div>
 </div>
-
