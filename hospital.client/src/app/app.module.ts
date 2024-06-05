@@ -13,6 +13,8 @@ import { DoctorsComponent } from './sections/doctors/doctors.component';
 import { AboutComponent } from './sections/about/about.component';
 import { SalesComponent } from './sections/sales/sales.component';
 import { SalesModule } from './sections/sales/sales.module';
+import { RegistrationComponent } from './registration/registration.component';
+import { AuthorizationComponent } from './authorization/authorization.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { SalesModule } from './sections/sales/sales.module';
     FooterComponent,
     ServicesComponent,
     DoctorsComponent,
-    AboutComponent
+    AboutComponent,
+    RegistrationComponent,
+    AuthorizationComponent
        
          
          

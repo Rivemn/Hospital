@@ -1,3 +1,11 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header styles */
 header {
   background-color: #f8f9fa; /* Светлый фон для хедера */
   padding: 20px 0; /* Отступы сверху и снизу */
@@ -16,7 +24,7 @@ header {
 .navbar-brand {
   font-size: 24px; /* Размер шрифта логотипа */
   font-weight: bold; /* Жирный шрифт для логотипа */
-  color: #333; /* Цвет логотипа */
+  color: #555; /* Более светлый цвет логотипа */
   text-decoration: none; /* Удаление подчеркивания */
 }
 
@@ -33,7 +41,7 @@ nav ul {
 
     nav ul li a {
       font-size: 18px; /* Размер шрифта элементов меню */
-      color: #333; /* Цвет текста меню */
+      color: #555; /* Более светлый цвет текста меню */
       text-decoration: none; /* Удаление подчеркивания */
       padding: 10px 15px; /* Внутренние отступы для кликабельной области */
       transition: color 0.3s ease; /* Плавный переход цвета */
@@ -42,3 +50,71 @@ nav ul {
       nav ul li a:hover {
         color: #007bff; /* Цвет текста при наведении */
       }
+
+/* Login button specific styles */
+.login-button {
+  background-color: #e0e0e0; /* Светло-серый цвет фона */
+  color: #333; /* Темный цвет текста */
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+  .login-button:hover {
+    background-color: #d4d4d4; /* Темно-серый цвет при наведении */
+    color: #000; /* Темный цвет текста при наведении */
+  }
+
+/* Form container */
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+  margin: 50px auto;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #555; /* Более светлый цвет заголовка */
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555; /* Более светлый цвет текста */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+  button:hover {
+    background-color: #0056b3;
+  }
