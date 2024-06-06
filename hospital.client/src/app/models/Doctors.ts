@@ -9,4 +9,5 @@ export interface Doctors {
   photo?: string;
   bio?: string;
   workingHours?: string;
+  passwordHash: string;
 }

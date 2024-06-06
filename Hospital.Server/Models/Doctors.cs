@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace Hospital.Server.Models.doctors
+namespace Hospital.Server.Models
 {
     public class Doctors
     {
@@ -34,5 +34,8 @@ namespace Hospital.Server.Models.doctors
 
         [StringLength(100)]
         public string WorkingHours { get; set; }
+
+        [StringLength(255)]
+        public string PasswordHash { get; set; }
     }
 }

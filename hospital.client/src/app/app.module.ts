@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms'; // Импортируйте FormsModule
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -33,7 +33,7 @@ import { AuthorizationComponent } from './authorization/authorization.component'
   ],
   imports: [
     BrowserModule, HttpClientModule,
-    AppRoutingModule, SalesModule
+    AppRoutingModule, SalesModule, FormsModule, 
 
   ],
  

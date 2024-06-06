@@ -6,5 +6,6 @@ export interface Customers {
   email: string;
   phone: string;
   adress: string;
+  passwordHash: string;
 }
 

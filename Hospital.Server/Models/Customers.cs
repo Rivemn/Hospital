@@ -24,5 +24,8 @@ namespace Hospital.Server.Models
 
         [MaxLength(200)]
         public string Address { get; set; }
+
+        [MaxLength(255)]
+        public string PasswordHash { get; set; }
     }
 }

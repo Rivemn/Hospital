@@ -9,8 +9,16 @@
         <li><a routerLink="/doctors">Врачи</a></li>
         <li><a routerLink="/sales">Покупки</a></li>
         <li><a routerLink="/contact">Контакты</a></li>
-        <li><a routerLink="/authorization" class="login-button">Войти</a></li>
+        <li *ngIf="isLoggedIn" class="user-info">
+          <a routerLink="/profile" class="profile-link" title="Зайти в профиль">{{ fullName }}</a>
+          <button class="logout-button" (click)="logout()">Выйти</button>
+        </li>
+        <li *ngIf="!isLoggedIn"><a routerLink="/authorization" class="login-button">Войти</a></li>
       </ul>
     </nav>
   </div>
 </header>
+
+
+
+

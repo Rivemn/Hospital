@@ -51,11 +51,48 @@ nav ul {
         color: #007bff; /* Цвет текста при наведении */
       }
 
+/* User info specific styles */
+.user-info {
+  display: flex;
+  align-items: center; /* Центрирование по вертикали */
+}
+
+.profile-link {
+  font-size: 16px; /* Небольшой размер шрифта для имени пользователя */
+  color: #555; /* Цвет текста */
+  text-decoration: none; /* Удаление подчеркивания */
+  padding: 10px 15px; /* Внутренние отступы для кликабельной области */
+  transition: color 0.3s ease; /* Плавный переход цвета */
+  margin-right: 10px; /* Отступ справа от ссылки */
+}
+
+  .profile-link:hover {
+    color: #007bff; /* Цвет текста при наведении */
+  }
+
+/* Specific styles for logout button */
+.logout-button {
+  padding: 8px 12px; /* Внутренние отступы для кнопки */
+  background-color: #f8d7da; /* Легкий красноватый оттенок */
+  border: none;
+  border-radius: 4px;
+  color: #721c24; /* Темный цвет текста */
+  font-size: 14px; /* Небольшой размер шрифта */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+  .logout-button:hover {
+    background-color: #f5c6cb; /* Темно-красный цвет при наведении */
+  }
+
 /* Login button specific styles */
 .login-button {
   background-color: #e0e0e0; /* Светло-серый цвет фона */
   color: #333; /* Темный цвет текста */
   border-radius: 4px;
+  padding: 10px 15px; /* Внутренние отступы для кнопки */
+  font-size: 18px; /* Размер шрифта */
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 

@@ -21,7 +21,7 @@ namespace Hospital.Server.Database
         public DbSet<ShoppingCart> ShoppingCarts { get; set; }
         public DbSet<ShoppingCartItems> ShoppingCartItems { get; set; }
 
-
+        public DbSet<Doctors> Doctors { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.LogTo(Console.WriteLine);

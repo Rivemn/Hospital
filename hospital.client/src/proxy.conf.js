@@ -1,6 +1,8 @@
 const PROXY_CONFIG = [
   {
     context: [
+      "/api/authorization/customer", 
+      "/api/authorization/doctor",
       "/api/categories",
       "/api/subcategories",
       "/api/subcategories/{categoryName}",

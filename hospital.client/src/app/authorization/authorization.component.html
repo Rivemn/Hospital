@@ -1,22 +1,23 @@
 <div class="container">
   <h2>Авторизация</h2>
-  <form id="loginForm">
+  <form id="loginForm" (ngSubmit)="login()">
     <div class="form-group">
       <label for="email">Электронная почта:</label>
-      <input type="email" id="email" name="email" required>
+      <input type="email" id="email" name="email" [(ngModel)]="email" autocomplete="email" required>
     </div>
     <div class="form-group">
       <label for="password">Пароль:</label>
-      <input type="password" id="password" name="password" required>
+      <input type="password" id="password" name="password" [(ngModel)]="password" autocomplete="current-password" required>
     </div>
     <div class="form-group">
       <label for="role">Роль:</label>
-      <select id="role" name="role" required>
+      <select id="role" name="role" [(ngModel)]="role" required>
         <option value="doctor">Врач</option>
         <option value="manager">Менеджер</option>
-        <option value="user">Обычный пользователь</option>
+        <option value="customer">Обычный пользователь</option>
       </select>
     </div>
     <button type="submit">Войти</button>
   </form>
+  <p class="register-link">Не зарегистрированы? <a href="/registration">Зарегистрироваться</a></p>
 </div>
