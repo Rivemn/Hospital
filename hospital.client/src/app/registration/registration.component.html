@@ -1,34 +1,31 @@
 <div class="container">
   <h2>Регистрация</h2>
-  <form id="registrationForm">
+  <form id="registrationForm" (ngSubmit)="register()">
     <div class="form-group">
       <label for="firstName">Имя:</label>
-      <input type="text" id="firstName" name="firstName" required>
+      <input type="text" id="firstName" name="firstName" [(ngModel)]="customer.firstName" required>
     </div>
     <div class="form-group">
       <label for="lastName">Фамилия:</label>
-      <input type="text" id="lastName" name="lastName" required>
+      <input type="text" id="lastName" name="lastName" [(ngModel)]="customer.lastName" required>
     </div>
     <div class="form-group">
       <label for="email">Электронная почта:</label>
-      <input type="email" id="email" name="email" required>
+      <input type="email" id="email" name="email" [(ngModel)]="customer.email" required>
     </div>
     <div class="form-group">
       <label for="phone">Телефон:</label>
-      <input type="tel" id="phone" name="phone">
+      <input type="tel" id="phone" name="phone" [(ngModel)]="customer.phone">
+    </div>
+    <div class="form-group">
+      <label for="address">адрес:</label>
+      <input type="text" id="address" name="address" [(ngModel)]="customer.address">
     </div>
     <div class="form-group">
       <label for="password">Пароль:</label>
-      <input type="password" id="password" name="password" required>
+      <input type="password" id="password" name="password" [(ngModel)]="customer.passwordHash" required>
     </div>
-    <div class="form-group">
-      <label for="role">Роль:</label>
-      <select id="role" name="role" required>
-        <option value="doctor">Врач</option>
-        <option value="manager">Менеджер</option>
-        <option value="user">Обычный пользователь</option>
-      </select>
-    </div>
+
     <button type="submit">Зарегистрироваться</button>
   </form>
 </div>

@@ -1,14 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Hospital.Server.Models
 {
-    public class Customers
+    public class CustomerDto
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int CustomerID { get; set; }
-
         [Required]
         [MaxLength(100)]
         public string FirstName { get; set; }
@@ -27,6 +22,7 @@ namespace Hospital.Server.Models
         [MaxLength(200)]
         public string Address { get; set; }
 
+        [Required]
         [MaxLength(255)]
         public string PasswordHash { get; set; }
     }

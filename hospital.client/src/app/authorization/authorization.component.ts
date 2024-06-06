@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class AuthorizationComponent {
   email: string = '';
   password: string = '';
-  role: string = '';
+  role: string = 'customer';
   errorMessage: string = '';
 
 
