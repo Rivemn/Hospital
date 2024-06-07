@@ -8,10 +8,13 @@ import { AuthorizationComponent } from './authorization/authorization.component'
 import { RegistrationComponent } from './registration/registration.component';
 const routes: Routes = [
   { path: 'services', component: ServicesComponent },
-  { path: 'doctors', component: DoctorsComponent },
   { path: 'about', component: AboutComponent },
   { path: 'authorization', component: AuthorizationComponent },
   { path: 'registration', component: RegistrationComponent },
+  {
+    path: 'doctors',
+    loadChildren: () => import('./sections/doctors/doctors.module').then(m => m.DoctorsModule)
+  },
   {
     path: 'sales',
     loadChildren: () => import('./sections/sales/sales.module').then(m => m.SalesModule)

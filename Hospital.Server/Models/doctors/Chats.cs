@@ -4,20 +4,17 @@ using System.Numerics;
 
 namespace Hospital.Server.Models.doctors
 {
-    public class Appoitments
+    public class Chats
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int AppointmentID { get; set; }
+        public int ChatID { get; set; }
 
         [ForeignKey("Customer")]
         public int CustomerID { get; set; }
 
         [ForeignKey("Doctor")]
         public int DoctorID { get; set; }
-
-        [Required]
-        public DateTime AppointmentDate { get; set; }
 
         public Customers Customer { get; set; }
         public Doctors Doctor { get; set; }

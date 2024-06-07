@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DoctorListComponent } from './doctor-list/doctor-list.component';
-import { DoctorDetailComponent } from './doctor-detail/doctor-detail.component';
-import { AppointmentComponent } from './appointment/appointment.component';
-import { ChatComponent } from './chat/chat.component';
+import { DoctorsListComponent } from './doctors-list/doctors-list.component';
+import { DoctorsDetailComponent } from './doctors-detail/doctors-detail.component';
+import { AppointmentsComponent } from './appointments/appointments.component';
+import { ChatsComponent } from './chats/chats.component';
 import { DoctorsRoutingModule } from './doctors-routing.module';
 
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    DoctorListComponent,
-    DoctorDetailComponent,
-    AppointmentComponent,
-    ChatComponent
+    DoctorsListComponent,
+    DoctorsDetailComponent,
+    AppointmentsComponent,
+    ChatsComponent
   ],
   imports: [
     CommonModule,

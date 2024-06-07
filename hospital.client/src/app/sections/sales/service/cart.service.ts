@@ -6,10 +6,20 @@ import { Items } from '../models/Items';
   providedIn: 'root'
 })
 export class CartService {
-  private cartItemsSource = new BehaviorSubject<{ item: Items, quantity: number }[]>([]);
+  private localStorageKey = 'cartItems';
+  private cartItemsSource = new BehaviorSubject<{ item: Items, quantity: number }[]>(this.loadCartItemsFromLocalStorage());
   cartItems$ = this.cartItemsSource.asObservable();
 
   constructor() { }
+
+  private loadCartItemsFromLocalStorage(): { item: Items, quantity: number }[] {
+    const cartItemsJSON = localStorage.getItem(this.localStorageKey);
+    return cartItemsJSON ? JSON.parse(cartItemsJSON) : [];
+  }
+
+  private saveCartItemsToLocalStorage(items: { item: Items, quantity: number }[]): void {
+    localStorage.setItem(this.localStorageKey, JSON.stringify(items));
+  }
 
   getCartItems(): { item: Items, quantity: number }[] {
     return this.cartItemsSource.value;
@@ -26,22 +36,27 @@ export class CartService {
     }
 
     this.cartItemsSource.next(currentItems);
+    this.saveCartItemsToLocalStorage(currentItems);
   }
 
   removeFromCart(itemId: number): void {
     const currentItems = this.getCartItems().filter(cartItem => cartItem.item.itemId !== itemId);
     this.cartItemsSource.next(currentItems);
+    this.saveCartItemsToLocalStorage(currentItems);
   }
 
   clearCart(): void {
     this.cartItemsSource.next([]);
+    this.saveCartItemsToLocalStorage([]);
   }
 
   updateCartItems(updatedItems: { item: Items, quantity: number }[]): void {
     this.cartItemsSource.next(updatedItems);
+    this.saveCartItemsToLocalStorage(updatedItems);
   }
 
   getTotalPrice(): number {
     return this.getCartItems().reduce((total, cartItem) => total + (cartItem.item.unitPrice * cartItem.quantity), 0);
   }
 }
+

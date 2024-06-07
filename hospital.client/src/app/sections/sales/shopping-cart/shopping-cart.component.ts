@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Items } from '../models/Items';
 import { CartService } from '../service/cart.service';
+
 @Component({
   selector: 'app-sales-shopping-cart',
   templateUrl: './shopping-cart.component.html',
-  styleUrl: './shopping-cart.component.css'
+  styleUrls: ['./shopping-cart.component.css']
 })
-export class ShoppingCartComponent {
+export class ShoppingCartComponent implements OnInit {
   cartItems: { item: Items, quantity: number }[] = [];
   totalPrice: number = 0;
 
@@ -37,6 +38,7 @@ export class ShoppingCartComponent {
   updateTotalPrice(): void {
     this.totalPrice = this.cartService.getTotalPrice();
   }
+
   validateQuantity(cartItem: { item: Items, quantity: number }): void {
     if (cartItem.quantity > cartItem.item.quantityAvailable) {
       cartItem.quantity = cartItem.item.quantityAvailable;
@@ -45,5 +47,5 @@ export class ShoppingCartComponent {
     }
     this.updateCart();
   }
-
 }
+

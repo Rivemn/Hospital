@@ -1,6 +1,7 @@
 const PROXY_CONFIG = [
   {
-    context: [
+    context: ["/api/doctors",
+      "/api/doctors/{firstName}/{lastName}",
       "/api/authorization/customer", 
       "/api/authorization/doctor",
       "/api/registration/customer",
@@ -10,6 +11,8 @@ const PROXY_CONFIG = [
       "/api/items",
       "/api/items/{subcategoryName}",
       "/api/items/item/{itemName}",
+
+     
     ],
     target: "https://localhost:7275",
     secure: false

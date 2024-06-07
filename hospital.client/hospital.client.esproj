@@ -7,8 +7,4 @@
     <!-- Folder where production build objects will be placed -->
     <PublishAssetsDirectory>$(MSBuildProjectDirectory)\dist\hospital.client\</PublishAssetsDirectory>
   </PropertyGroup>
-  <ItemGroup>
-    <Folder Include="src\app\sections\doctors\service\" />
-    <Folder Include="src\app\sections\doctors\models\" />
-  </ItemGroup>
 </Project>

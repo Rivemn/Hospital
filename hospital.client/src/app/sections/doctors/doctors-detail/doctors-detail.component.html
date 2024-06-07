@@ -1,0 +1,16 @@
+<div class="container" *ngIf="doctor">
+  <h2>{{doctor.firstName}} {{doctor.lastName}}</h2>
+  <img *ngIf="doctor.photo" [src]="doctor.photo" alt="{{doctor.firstName}} {{doctor.lastName}}">
+  <p><strong>Специальность:</strong> {{doctor.specialty}}</p>
+  <p><strong>Телефон:</strong> {{doctor.phone}}</p>
+  <p><strong>Email:</strong> {{doctor.email}}</p>
+  <p><strong>Рабочие часы:</strong> {{doctor.workingHours}}</p>
+  <p><strong>Биография:</strong> {{doctor.bio}}</p>
+  <div class="actions">
+    <button class="btn btn-primary" (click)="bookAppointment()">Записаться на прием</button>
+    <button class="btn btn-secondary" (click)="startChat()">Начать чат с врачом</button>
+  </div>
+</div>
+<div *ngIf="!doctor">
+  <p>Выберите врача из списка.</p>
+</div>

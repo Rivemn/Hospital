@@ -31,6 +31,7 @@ header {
 nav ul {
   list-style: none; /* Удаление маркеров списка */
   display: flex; /* Выстраивание элементов в ряд */
+  align-items: center;
   margin: 0; /* Удаление внешних отступов */
   padding: 0; /* Удаление внутренних отступов */
 }
