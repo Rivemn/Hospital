@@ -15,6 +15,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { AuthorizationComponent } from './authorization/authorization.component';
 
 import { DoctorsModule } from './sections/doctors/doctors.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { DoctorsModule } from './sections/doctors/doctors.module';
     DoctorsComponent,
     AboutComponent,
     RegistrationComponent,
-    AuthorizationComponent
+    AuthorizationComponent,
+
        
          
          

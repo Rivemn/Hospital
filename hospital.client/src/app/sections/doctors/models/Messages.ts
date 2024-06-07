@@ -1,8 +1,8 @@
 export interface Messages {
-  messageId: number;
-  chatId: number;
-  senderId: number;
-  roleId: number;
+  messageID: number;
+  chatID: number;
+  senderDoctorID?: number;
+  senderCustomerID?: number;
   messageText: string;
   timestamp: Date;
 }

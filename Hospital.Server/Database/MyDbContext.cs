@@ -1,4 +1,5 @@
 ﻿using Hospital.Server.Models;
+using Hospital.Server.Models.doctors;
 using Hospital.Server.Models.sales;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,6 +23,10 @@ namespace Hospital.Server.Database
         public DbSet<ShoppingCartItems> ShoppingCartItems { get; set; }
 
         public DbSet<Doctors> Doctors { get; set; }
+
+
+        public DbSet<Chats> Chats { get; set; }
+        public DbSet<Messages> Messages { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.LogTo(Console.WriteLine);

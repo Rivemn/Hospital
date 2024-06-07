@@ -1,0 +1,16 @@
+<div *ngIf="messages.length === 0">
+  <p>No messages available.</p>
+</div>
+
+<div *ngFor="let message of messages">
+  <div>
+    <strong>{{ message.senderDoctorID ? 'Doctor' : 'Customer' }}:</strong> {{ message.messageText }}
+    <span>{{ message.timestamp | date:'short' }}</span>
+  </div>
+</div>
+
+<div>
+  <textarea [(ngModel)]="newMessageText" placeholder="Type your message..."></textarea>
+  <button (click)="sendMessage()">Send</button>
+</div>
+

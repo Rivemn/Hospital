@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System;
+using System.Numerics;
 
 namespace Hospital.Server.Models.doctors
 {
@@ -14,10 +15,9 @@ namespace Hospital.Server.Models.doctors
         [ForeignKey("Chat")]
         public int ChatID { get; set; }
 
-        public int SenderID { get; set; } // Assuming this is the ID of the sender, either a doctor or customer
+        public int? SenderDoctorID { get; set; }
 
-        [ForeignKey("Role")]
-        public int RoleID { get; set; }
+        public int? SenderCustomerID { get; set; }
 
         public string MessageText { get; set; }
 
@@ -25,6 +25,9 @@ namespace Hospital.Server.Models.doctors
         public DateTime Timestamp { get; set; }
 
         public Chats Chat { get; set; }
+
+        public virtual Doctors SenderDoctor { get; set; }
+        public virtual Customers SenderCustomer { get; set; }
 
 
     }

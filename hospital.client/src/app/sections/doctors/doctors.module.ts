@@ -7,13 +7,15 @@ import { ChatsComponent } from './chats/chats.component';
 import { DoctorsRoutingModule } from './doctors-routing.module';
 
 import { FormsModule } from '@angular/forms';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
     DoctorsListComponent,
     DoctorsDetailComponent,
     AppointmentsComponent,
-    ChatsComponent
+    ChatsComponent,
+    MessagesComponent
   ],
   imports: [
     CommonModule,
