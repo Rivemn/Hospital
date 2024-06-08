@@ -6,6 +6,7 @@ import { AuthorizationService } from '../../../authorization/service/authorizati
 import { SharedService } from '../service/shared.service';
 import { AuthStateService } from '../../../authorization/service/auth-state.service';
 import { Router } from '@angular/router';
+import { DoctorsService } from '../service/doctors.service';
 @Component({
   selector: 'app-appointments',
   templateUrl: './appointments.component.html',
@@ -13,14 +14,15 @@ import { Router } from '@angular/router';
 })
 export class AppointmentsComponent implements OnInit {
   selectedDoctor: any;
-  customerId: number | null = null;
-  appointmentDate: string | null = null; // Тип string для совместимости с input[type="datetime-local"]
+  customerId!: number ;
+  appointmentDate!: string ;
 
   constructor(
     private sharedService: SharedService,
     private authStateService: AuthStateService,
     private appointmentService: AppointmentService,
-    private router: Router
+    private router: Router,
+    private doctorService: DoctorsService,
   ) { }
 
   ngOnInit(): void {
@@ -42,25 +44,37 @@ export class AppointmentsComponent implements OnInit {
       });
     }
   }
+
+
+
+
   makeAppointment(): void {
 
-
     if (this.customerId && this.selectedDoctor && this.appointmentDate) {
-      const appointment = {
-        customerID: this.customerId,
-        doctorID: this.selectedDoctor.id,
-        appointmentDate: new Date(this.appointmentDate) // Преобразование строки в дату
-      };
-    console.log('CustomerID:', this.customerId);
-    console.log('SelectedDoctor:', this.selectedDoctor);
-    console.log('AppointmentDate:', this.appointmentDate);
-      this.appointmentService.createAppointment(appointment).subscribe(
-        response => {
-          console.log('Appointment created successfully:', response);
-          this.router.navigate(['/appointments']);
+      this.doctorService.getDoctorId(this.selectedDoctor.firstName, this.selectedDoctor.lastName).subscribe(
+        doctorId => {
+          const appointment = {
+            customerId: this.customerId,
+            doctorId: doctorId,
+            appointmentDate: new Date(this.appointmentDate as string) // Преобразование строки в дату
+          };
+
+          console.log('CustomerID:', this.customerId);
+          console.log('SelectedDoctorId:', doctorId);
+          console.log('AppointmentDate:', this.appointmentDate);
+
+          this.appointmentService.createAppointment(appointment).subscribe(
+            response => {
+              console.log('Appointment created successfully:', response);
+              this.router.navigate(['/appointments']);
+            },
+            error => {
+              console.error('Error creating appointment:', error);
+            }
+          );
         },
         error => {
-          console.error('Error creating appointment:', error);
+          console.error('Error fetching doctor ID:', error);
         }
       );
     } else {

@@ -1,6 +1,6 @@
 export interface Appointments {
 
-  customerID: number;
-  doctorID: number;
+  customerId: number;
+  doctorId: number;
   appointmentDate: Date;
 }
