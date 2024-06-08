@@ -1,8 +1,7 @@
 export interface Messages {
-  messageID: number;
   chatID: number;
-  senderDoctorID?: number;
-  senderCustomerID?: number;
+  senderDoctorID: boolean; 
+  senderCustomerID: boolean; 
   messageText: string;
   timestamp: Date;
 }

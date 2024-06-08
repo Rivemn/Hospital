@@ -1,16 +1,15 @@
-<div *ngIf="messages.length === 0">
-  <p>No messages available.</p>
-</div>
+<div class="message-container">
+  <!-- Вывод сообщений -->
+  <ul class="message-list">
+    <li *ngFor="let message of messages" class="message-item">
+      {{ message.messageText }}
+    </li>
+  </ul>
 
-<div *ngFor="let message of messages">
-  <div>
-    <strong>{{ message.senderDoctorID ? 'Doctor' : 'Customer' }}:</strong> {{ message.messageText }}
-    <span>{{ message.timestamp | date:'short' }}</span>
-  </div>
-</div>
-
-<div>
-  <textarea [(ngModel)]="newMessageText" placeholder="Type your message..."></textarea>
-  <button (click)="sendMessage()">Send</button>
+  <!-- Форма для отправки сообщения -->
+  <form class="message-form" (ngSubmit)="sendMessage()">
+    <textarea class="message-input" [(ngModel)]="newMessageText" name="newMessageText" placeholder="Введите сообщение"></textarea>
+    <button type="submit" class="send-button">Отправить</button>
+  </form>
 </div>
 

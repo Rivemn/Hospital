@@ -1,11 +1,10 @@
-<div *ngIf="chats.length === 0">
-  <p>No chats available.</p>
+<div class="container">
+  <h2>Чаты</h2>
+  <ul class="chat-list">
+    <li *ngFor="let chat of chats" (click)="viewMessages()">
+      Чат с доктором: {{ chat.doctorId }} и клиентом: {{ chat.customerId }}
+    </li>
+  </ul>
 </div>
 
-<div *ngFor="let chat of chats">
-  <div>
-    <h3>Chat between {{ chat.customer.firstName }} {{ chat.customer.lastName }} and Dr. {{ chat.doctor.firstName }} {{ chat.doctor.lastName }}</h3>
-    <button (click)="viewMessages(chat.chatID)">View Messages</button>
-  </div>
-</div>
 

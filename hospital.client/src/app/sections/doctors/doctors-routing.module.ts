@@ -5,6 +5,7 @@ import { DoctorsDetailComponent } from './doctors-detail/doctors-detail.componen
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { ChatsComponent } from './chats/chats.component';
 import { DoctorsComponent } from './doctors.component';
+import { MessagesComponent } from './messages/messages.component';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
       { path: 'doctors-list', component: DoctorsListComponent },
       { path: 'doctor-detail', component: DoctorsDetailComponent },
       { path: 'appoitments', component: AppointmentsComponent },
-      { path: 'chats', component: ChatsComponent },
+      { path: 'chats', component: ChatsComponent }, 
+      { path: 'messages/:chatId', component: MessagesComponent },
     
       { path: '', redirectTo: 'doctors-list', pathMatch: 'full' }  // Редирект на страницу категорий с товарами по умолчанию
     ]

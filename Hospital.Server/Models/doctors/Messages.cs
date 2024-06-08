@@ -15,9 +15,8 @@ namespace Hospital.Server.Models.doctors
         [ForeignKey("Chat")]
         public int ChatID { get; set; }
 
-        public int? SenderDoctorID { get; set; }
-
-        public int? SenderCustomerID { get; set; }
+        public bool SenderDoctorID { get; set; } // Changed type to bool
+        public bool SenderCustomerID { get; set; } // Changed type to bool
 
         public string MessageText { get; set; }
 
@@ -26,8 +25,7 @@ namespace Hospital.Server.Models.doctors
 
         public Chats Chat { get; set; }
 
-        public virtual Doctors SenderDoctor { get; set; }
-        public virtual Customers SenderCustomer { get; set; }
+       
 
 
     }

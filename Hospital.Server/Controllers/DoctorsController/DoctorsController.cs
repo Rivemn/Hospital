@@ -23,6 +23,7 @@ namespace Hospital.Server.Controllers.DoctorsController
             var doctors = await _context.Doctors
                 .Select(d => new
                 {
+                    d.DoctorId,
                     d.FirstName,
                     d.LastName,
                     d.Specialty,

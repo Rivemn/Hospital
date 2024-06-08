@@ -18,17 +18,14 @@ export class DoctorsDetailComponent implements OnInit {
       doctor => this.doctor = doctor
     );
   }
+
   bookAppointment(): void {
-    // Реализация логики записи на прием
     console.log(`Запись на прием к доктору: ${this.doctor.firstName} ${this.doctor.lastName}`);
-    // Перенаправление на страницу записи на прием или вызов соответствующего сервиса
     this.router.navigate(['/appointments', { doctorId: this.doctor.doctorId }]);
   }
 
   startChat(): void {
-    // Реализация логики начала чата
     console.log(`Начало чата с доктором: ${this.doctor.firstName} ${this.doctor.lastName}`);
-    // Перенаправление на страницу чата или вызов соответствующего сервиса
     this.router.navigate(['/chats', { doctorId: this.doctor.doctorId }]);
   }
 }
