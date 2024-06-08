@@ -1,0 +1,36 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.appointment-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+  .appointment-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+
+.button {
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+  .button:hover {
+    background-color: #0056b3;
+  }

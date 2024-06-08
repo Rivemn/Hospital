@@ -20,8 +20,10 @@ export class DoctorsDetailComponent implements OnInit {
   }
 
   bookAppointment(): void {
+ 
     console.log(`Запись на прием к доктору: ${this.doctor.firstName} ${this.doctor.lastName}`);
     this.router.navigate(['/appointments', { doctorId: this.doctor.doctorId }]);
+
   }
 
   startChat(): void {

@@ -10,6 +10,9 @@ const PROXY_CONFIG = [
       "/api/messages/{chatId}",
       "/api/chats/by-names",
 
+      "/api/appointments",
+      "/api/appointments/{id}",
+
       "/api/authorization/customer", 
       "/api/authorization/doctor",
       "/api/registration/customer",

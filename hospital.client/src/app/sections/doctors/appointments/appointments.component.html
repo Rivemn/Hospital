@@ -1,1 +1,13 @@
-<p>appointment works!</p>
+<div *ngIf="selectedDoctor">
+  <h2>Запись к врачу: {{ selectedDoctor.name }}</h2>
+  <form (ngSubmit)="makeAppointment()">
+    <div>
+      <label for="appointmentDate">Дата и время приема:</label>
+      <input type="datetime-local" id="appointmentDate" [(ngModel)]="appointmentDate" name="appointmentDate" required>
+    </div>
+    <button type="submit">Записаться</button>
+  </form>
+</div>
+<div *ngIf="!selectedDoctor">
+  <p>Выберите врача для записи на прием.</p>
+</div>

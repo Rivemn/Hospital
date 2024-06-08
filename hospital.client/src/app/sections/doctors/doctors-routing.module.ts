@@ -15,7 +15,7 @@ const routes: Routes = [
 
       { path: 'doctors-list', component: DoctorsListComponent },
       { path: 'doctor-detail', component: DoctorsDetailComponent },
-      { path: 'appoitments', component: AppointmentsComponent },
+      { path: 'appointments', component: AppointmentsComponent },
       { path: 'chats', component: ChatsComponent }, 
       { path: 'messages/:chatId', component: MessagesComponent },
     

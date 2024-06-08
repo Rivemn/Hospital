@@ -4,7 +4,7 @@ using System.Numerics;
 
 namespace Hospital.Server.Models.doctors
 {
-    public class Appoitments
+    public class Appointments
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

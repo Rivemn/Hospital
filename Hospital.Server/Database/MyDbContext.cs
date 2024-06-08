@@ -27,6 +27,8 @@ namespace Hospital.Server.Database
 
         public DbSet<Chats> Chats { get; set; }
         public DbSet<Messages> Messages { get; set; }
+
+        public DbSet<Appointments> Appointments { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.LogTo(Console.WriteLine);
