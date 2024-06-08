@@ -19,6 +19,8 @@ export class AuthorizationService {
           localStorage.setItem('userType', response.userType);
           localStorage.setItem('firstName', response.firstName);
           localStorage.setItem('lastName', response.lastName);
+          localStorage.setItem('email', response.email);
+          localStorage.setItem('phone', response.phone);
           this.authStateService.setLoggedIn(true); // Обновление состояния
         }
         return response;
@@ -52,5 +54,12 @@ export class AuthorizationService {
 
   getLastName(): string | null {
     return localStorage.getItem('lastName');
+  }
+  getEmail(): string | null {
+    return localStorage.getItem('email');
+  }
+
+  getPhone(): string | null {
+    return localStorage.getItem('phone');
   }
 }

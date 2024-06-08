@@ -6,6 +6,7 @@ namespace Hospital.Server.Models.sales
     public class ShoppingCartItems
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CartItemID { get; set; }
 
         public int CartID { get; set; }

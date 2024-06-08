@@ -1,4 +1,4 @@
-export interface Order {
+export interface Orders {
   orderId: number;
   customerId: number;
   cartId: number;

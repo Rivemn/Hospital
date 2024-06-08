@@ -7,6 +7,7 @@ namespace Hospital.Server.Models.sales
     {
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CartID { get; set; }
 
         public int? CustomerID { get; set; }

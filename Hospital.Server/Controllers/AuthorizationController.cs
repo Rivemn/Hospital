@@ -22,7 +22,7 @@ namespace Hospital.Server.Controllers
             if (customer != null)
             {
                 // Авторизация прошла успешно, можно создать сессию или куки
-                return Ok(new { message = "Login successful", userType = "Customer", firstName = customer.FirstName, lastName = customer.LastName, userId = customer.CustomerID });
+                return Ok(new { message = "Login successful", userType = "Customer", firstName = customer.FirstName, lastName = customer.LastName, userId = customer.CustomerID, email = customer.Email, phone = customer.Phone, });
             }
 
             return Unauthorized(new { message = "Invalid credentials" });

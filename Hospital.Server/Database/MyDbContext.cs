@@ -1,4 +1,5 @@
-﻿using Hospital.Server.Models;
+﻿using Hospital.Server.Controllers.SalesControllers;
+using Hospital.Server.Models;
 using Hospital.Server.Models.doctors;
 using Hospital.Server.Models.sales;
 using Microsoft.EntityFrameworkCore;
@@ -19,7 +20,7 @@ namespace Hospital.Server.Database
         public DbSet<Items> Items { get; set; }
 
         public DbSet<Customers> Customers { get; set; }
-        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
+        public DbSet<ShoppingCart> ShoppingCart { get; set; }
         public DbSet<ShoppingCartItems> ShoppingCartItems { get; set; }
 
         public DbSet<Doctors> Doctors { get; set; }
@@ -29,6 +30,9 @@ namespace Hospital.Server.Database
         public DbSet<Messages> Messages { get; set; }
 
         public DbSet<Appointments> Appointments { get; set; }
+
+        public DbSet<Orders> Orders { get; set; }
+     
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.LogTo(Console.WriteLine);

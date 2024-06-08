@@ -14,6 +14,12 @@ const PROXY_CONFIG = [
       "/api/appointments",
       "/api/appointments/{id}",
 
+      "/api/orders",
+      "/api/orders/{id}",
+
+      "/api/shoppingcart",
+      "/api/shoppingcart/{id}",
+
       "/api/authorization/customer", 
       "/api/authorization/doctor",
       "/api/registration/customer",
