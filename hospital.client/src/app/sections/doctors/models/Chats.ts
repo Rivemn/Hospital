@@ -1,5 +1,5 @@
 export interface Chats {
-  chatId(chatId: any): unknown;
+  chatId: number;
   customerId: number;
   doctorId: number;
 }

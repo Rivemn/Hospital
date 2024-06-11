@@ -79,5 +79,21 @@ namespace Hospital.Server.Controllers.DoctorsController
 
             return Ok(doctorId);
         }
+        // Endpoint to get doctor name by ID
+        [HttpGet("{doctorId}")]
+        public async Task<ActionResult<string>> GetDoctorNameById(int doctorId)
+        {
+            var doctor = await _context.Doctors
+                .Where(d => d.DoctorId == doctorId)
+                .Select(d => new { d.FirstName, d.LastName })
+                .FirstOrDefaultAsync();
+
+            if (doctor == null)
+            {
+                return NotFound();
+            }
+
+            return Ok($"{doctor.FirstName} {doctor.LastName}");
+        }
     }
 }

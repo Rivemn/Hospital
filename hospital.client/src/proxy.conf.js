@@ -1,10 +1,13 @@
 const PROXY_CONFIG = [
   {
-    context: ["/api/doctors",
+    context: [ "/api/doctors",
+      "/api/doctors/{doctorId}",
       "/api/doctors/{firstName}/{lastName}",
       "/api/doctors/id/{firstName}/{lastName}",
+
+
       "/api/chats",
-      "/api/chats/{id}",
+      "/api/chats/{customerId}",
       "/api/chats/participants",
 
       "/api/messages",

@@ -1,10 +1,9 @@
-<div class="container">
-  <h2>Чаты</h2>
-  <ul class="chat-list">
-    <li *ngFor="let chat of chats" (click)="viewMessages()">
-      Чат с доктором: {{ chat.doctorId }} и клиентом: {{ chat.customerId }}
-    </li>
-  </ul>
+<div *ngFor="let chat of chats">
+  <div>
+    <button (click)="viewMessages(chat.chatId)">View Messages</button>
+    <div *ngIf="chat.doctorId">
+      <p>Doctor: {{ doctorNames[chat.doctorId] || 'Loading...' }}</p>
+    </div>
+  </div>
 </div>
-
 

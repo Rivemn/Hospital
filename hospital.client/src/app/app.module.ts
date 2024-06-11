@@ -22,7 +22,7 @@ import { DoctorsModule } from './sections/doctors/doctors.module';
     HeaderComponent,
     FooterComponent,
     ServicesComponent,
-    DoctorsComponent,
+   
     AboutComponent,
     RegistrationComponent,
     AuthorizationComponent,

@@ -14,13 +14,12 @@ interface ChatResponse {
 })
 
 export class ChatService {
-
   private apiUrl = '/api'; // Измените на реальный URL вашего API
-  constructor(private http: HttpClient, private router: Router) { }
+
+  constructor(private http: HttpClient) { }
+
   getChats(): Observable<Chats[]> {
-    return this.http.get<Chats[]>(`${this.apiUrl}/chats`).pipe(
-      catchError(this.handleError)
-    );
+    return this.http.get<Chats[]>(`${this.apiUrl}/chats`);
   }
 
   getMessages(chatId: number): Observable<Messages[]> {
@@ -34,7 +33,7 @@ export class ChatService {
       catchError(this.handleError)
     );
   }
- 
+
   getChatIdByNames(customerFirstName: string, customerLastName: string, doctorFirstName: string, doctorLastName: string): Observable<number | null> {
     return this.http.get<ChatResponse>(`${this.apiUrl}/chats/by-names`, {
       params: {
@@ -43,14 +42,14 @@ export class ChatService {
         doctorFirstName,
         doctorLastName
       },
-      observe: 'response' // Observe the full HTTP response
+      observe: 'response'
     }).pipe(
       map(response => {
         if (response.status === 200 && response.body?.chatId !== undefined) {
           return response.body.chatId;
         } else if (response.status === 404 && response.body?.message) {
           console.error(response.body.message);
-          return null; // Return null if the chat is not found
+          return null;
         }
         throw new Error('Unexpected response status: ' + response.status);
       }),
@@ -64,10 +63,11 @@ export class ChatService {
       })
     );
   }
+
   createChat(customerId: number, doctorId: number): Observable<Chats> {
     const chat: Partial<Chats> = { customerId, doctorId };
-    console.log('Creating chat with:', chat); // Debug log
-    return this.http.post<Chats>(`${this.apiUrl}`, chat).pipe(
+    console.log('Creating chat with:', chat);
+    return this.http.post<Chats>(`${this.apiUrl}/chats`, chat).pipe(
       catchError(this.handleError)
     );
   }
@@ -86,18 +86,21 @@ export class ChatService {
   }
 
   private getChatByParticipants(customerID: number, doctorID: number): Observable<Chats | null> {
-    console.log(`Checking chat between customerID=${customerID} and doctorID=${doctorID}`); // Debug log
+    console.log(`Checking chat between customerID=${customerID} and doctorID=${doctorID}`);
     return this.http.get<Chats | null>(`${this.apiUrl}/chats/participants?customerID=${customerID}&doctorID=${doctorID}`).pipe(
       catchError(this.handleError)
     );
   }
 
-  viewMessages(chatID: number): void {
-    this.router.navigate(['/messages', chatID]);
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    console.error('An error occurred:', error);
+    return throwError(() => new Error('An error occurred; please try again later.'));
+  }
+  getChatsByCustomer(customerId: number): Observable<any> {
+    return this.http.get<any>(`/api/chats/${customerId}`).pipe(
+      catchError(this.handleError)
+    );
   }
 
-  private handleError(error: HttpErrorResponse): Observable<never> {
-    console.error('An error occurred:', error); // Log error to console
-    throw error;
-  }
 }
+

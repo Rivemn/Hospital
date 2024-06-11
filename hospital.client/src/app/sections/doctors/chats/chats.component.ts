@@ -5,6 +5,7 @@ import { Messages } from '../models/Messages';
 import { Router } from '@angular/router';
 import { SharedService } from '../service/shared.service';
 import { AuthorizationService } from '../../../authorization/service/authorization.service';
+import { DoctorsService } from '../service/doctors.service';
 
 @Component({
   selector: 'app-chats',
@@ -12,74 +13,55 @@ import { AuthorizationService } from '../../../authorization/service/authorizati
   styleUrls: ['./chats.component.css']
 })
 export class ChatsComponent implements OnInit {
-  chats: Chats[] = [];
-  customerId: number;
-  doctorId: number | null = null;
-  customerFirstName: string | null;
-  customerLastName: string | null;
-  doctorFirstName: string | undefined;
-  doctorLastName: string | undefined;
-
+  chats!: Chats[];
+  customerId!: number ;
+  doctorNames: { [doctorId: number]: string } = {};
   constructor(
     private chatService: ChatService,
-    private sharedService: SharedService,
+    private router: Router,
     private authService: AuthorizationService,
-    private router: Router
-  ) {
-    const userId = this.authService.getUserId();
-    this.customerId = userId ? parseInt(userId, 10) : -1;
-
-    this.customerFirstName = this.authService.getFirstName();
-    this.customerLastName = this.authService.getLastName();
-  }
+    private doctorsService: DoctorsService
+  ) { }
 
   ngOnInit(): void {
-    this.sharedService.selectedDoctor$.subscribe(doctor => {
-      if (doctor) {
-        this.doctorId = doctor.doctorId;
-        this.doctorFirstName = doctor.firstName;
-        this.doctorLastName = doctor.lastName;
-        this.ensureChatExists();
+    const userIdStr = this.authService.getUserId();
+    if (userIdStr) {
+      this.customerId = parseInt(userIdStr, 10);
+    }
+    
+    if (this.customerId !== null) {
+      this.chatService.getChatsByCustomer(this.customerId).subscribe(
+        chats => {
+          this.chats = chats;
+          this.fetchDoctorNames();
+        },
+        error => console.error('Error fetching chats:', error)
+      );
+    }
+  }
+
+
+
+
+  viewMessages(chatId: number): void {
+    this.router.navigate(['/messages', chatId]);
+  }
+
+  private fetchDoctorNames(): void {
+    const doctorIds = Array.from(new Set(this.chats.map(chat => chat.doctorId)));
+    doctorIds.forEach(doctorId => {
+      if (!this.doctorNames[doctorId]) {  // Check if the doctor name is already fetched
+        this.doctorsService.getDoctorNameById(doctorId).subscribe(
+          doctorName => {
+            this.doctorNames[doctorId] = doctorName;
+          },
+          error => console.error('Error fetching doctor name:', error)
+        );
       }
     });
-
-    this.chatService.getChats().subscribe(chats => this.chats = chats);
   }
 
-  viewMessages(): void {
-    if (this.customerFirstName && this.customerLastName && this.doctorFirstName && this.doctorLastName) {
-      this.chatService.getChatIdByNames(this.customerFirstName, this.customerLastName, this.doctorFirstName, this.doctorLastName).subscribe({
-        next: chatId => {
-          this.router.navigate(['/messages', chatId]);
-        }
-      })
-    }
-  }
-
-  ensureChatExists(): void {
-    if (this.customerFirstName && this.customerLastName && this.doctorFirstName && this.doctorLastName) {
-      this.chatService.getChatIdByNames(this.customerFirstName, this.customerLastName, this.doctorFirstName, this.doctorLastName).subscribe({
-        next: chatId => {
-          if (typeof chatId !== 'number') {
-            // Если чата не существует, создаем новый
-            this.chatService.ensureChatExists(this.customerId, this.doctorId!).subscribe({
-              next: chat => {
-                if (!chat) {
-                  console.error('Failed to create or find chat');
-                }
-              },
-              error: err => {
-                console.error('Error in ensuring chat exists', err);
-              }
-            });
-          }
-        },
-        error: err => {
-          console.error('Error in getting chat by names', err);
-        }
-      });
-    } else {
-      console.error('Customer or Doctor names are not set');
-    }
+  getDoctorName(doctorId: number): string {
+    return this.doctorNames[doctorId] || 'Loading...';
   }
 }

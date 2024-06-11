@@ -8,19 +8,26 @@ import { DoctorsRoutingModule } from './doctors-routing.module';
 
 import { FormsModule } from '@angular/forms';
 import { MessagesComponent } from './messages/messages.component';
+import { DoctorHeaderComponent } from './doctor-header/doctor-header.component';
+import { DoctorsComponent } from './doctors.component';
 
 @NgModule({
   declarations: [
+    DoctorsComponent,
     DoctorsListComponent,
     DoctorsDetailComponent,
     AppointmentsComponent,
     ChatsComponent,
-    MessagesComponent
+    MessagesComponent,
+    DoctorHeaderComponent
   ],
   imports: [
     CommonModule,
     DoctorsRoutingModule,
     FormsModule
+  ],
+  exports: [
+    DoctorsComponent
   ],
   
 })

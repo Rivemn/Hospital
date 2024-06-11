@@ -6,6 +6,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Hospital.Server.Controllers.DoctorsController
 {
+    public class ChatDto
+    {
+        public int ChatId { get; set; }
+        public int CustomerId { get; set; }
+        public int DoctorId { get; set; }
+    }
     [Route("api/[controller]")]
     [ApiController]
     public class ChatsController : ControllerBase
@@ -16,23 +22,37 @@ namespace Hospital.Server.Controllers.DoctorsController
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
+
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Chats>>> GetChats()
+        public async Task<ActionResult<IEnumerable<ChatDto>>> GetChats()
         {
             var chats = await _context.Chats
-                                      .Include(c => c.Customer)
-                                      .Include(c => c.Doctor)
-                                      .ToListAsync();
+                .Include(c => c.Customer)
+                .Include(c => c.Doctor)
+
+                .Select(c => new ChatDto
+                {
+                    ChatId = c.ChatID,
+                    CustomerId = c.CustomerID,
+                    DoctorId = c.DoctorID,
+
+                })
+                .ToListAsync();
             return Ok(chats);
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Chats>> GetChat(int id)
+        [HttpGet("participants")]
+        public async Task<ActionResult> GetChatByParticipants(int customerID)
         {
             var chat = await _context.Chats
-                                     .Include(c => c.Customer)
-                                     .Include(c => c.Doctor)
-                                     .FirstOrDefaultAsync(c => c.ChatID == id);
+                .Where(c => c.CustomerID == customerID )
+                .Select(c => new
+                {
+                    c.ChatID,
+                    c.CustomerID,
+                    c.DoctorID
+                })
+                .ToListAsync(); ;
 
             if (chat == null)
             {
@@ -41,20 +61,7 @@ namespace Hospital.Server.Controllers.DoctorsController
 
             return Ok(chat);
         }
-        [HttpGet("participants")]
-        public async Task<ActionResult<Chats>> GetChatByParticipants(int customerID, int doctorID)
-        {
-            var chat = await _context.Chats
-                .Where(c => c.CustomerID == customerID && c.DoctorID == doctorID)
-                .FirstOrDefaultAsync();
 
-            if (chat == null)
-            {
-                return NotFound();
-            }
-
-            return chat;
-        }
         [HttpGet("by-names")]
         public async Task<ActionResult<object>> GetChatIdByNames(string customerFirstName, string customerLastName, string doctorFirstName, string doctorLastName)
         {
@@ -82,25 +89,31 @@ namespace Hospital.Server.Controllers.DoctorsController
             }
         }
 
-        [HttpPost]
-        public async Task<ActionResult<Chats>> CreateChat([FromBody] CreateChatRequest request)
+        [HttpGet("{customerId}")]
+        public async Task<ActionResult<IEnumerable<object>>> GetChatsByCustomer(int customerId)
         {
-            var chat = new Chats
-            {
-                CustomerID = request.CustomerID,
-                DoctorID = request.DoctorID
-            };
+            var chats = await _context.Chats
+                .Include(c => c.Customer)
+                .Include(c => c.Doctor)
+                .Where(c => c.CustomerID == customerId)
+                .Select(c => new
+                {
+                   chatId= c.ChatID,
+                    customerId=c.CustomerID,
+                   doctorId= c.DoctorID,
 
-            _context.Chats.Add(chat);
-            await _context.SaveChangesAsync();
+                })
+                .ToListAsync();
 
-            return CreatedAtAction(nameof(GetChatByParticipants), new { customerID = chat.CustomerID, doctorID = chat.DoctorID }, chat);
+            return Ok(chats);
         }
     }
-
     public class CreateChatRequest
     {
         public int CustomerID { get; set; }
         public int DoctorID { get; set; }
     }
+  
 }
+
+
