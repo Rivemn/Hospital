@@ -1,19 +1,19 @@
 <div class="container">
-  <h2>Наши врачи</h2>
+  <h2>Our doctors</h2>
   <div *ngIf="doctors.length > 0; else noDoctors">
     <div *ngFor="let doctor of doctors" class="doctor-card" (click)="viewDoctorDetails(doctor)">
       <img *ngIf="doctor.photo" [src]="doctor.photo" alt="{{doctor.firstName}} {{doctor.lastName}}">
       <div class="doctor-info">
         <h3>{{doctor.firstName}} {{doctor.lastName}}</h3>
-        <p><strong>Специальность:</strong> {{doctor.specialty}}</p>
-        <p><strong>Телефон:</strong> {{doctor.phone}}</p>
+        <p><strong>Specialty:</strong> {{doctor.specialty}}</p>
+        <p><strong>Phone:</strong> {{doctor.phone}}</p>
         <p><strong>Email:</strong> {{doctor.email}}</p>
-        <p><strong>Рабочие часы:</strong> {{doctor.workingHours}}</p>
-        <p><strong>Биография:</strong> {{doctor.bio}}</p>
+        <p><strong>Working hours:</strong> {{doctor.workingHours}}</p>
+        <p><strong>Biography:</strong> {{doctor.bio}}</p>
       </div>
     </div>
   </div>
   <ng-template #noDoctors>
-    <p>Врачи не найдены.</p>
+    <p>No doctors found.</p>
   </ng-template>
 </div>

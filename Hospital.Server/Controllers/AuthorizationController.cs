@@ -35,7 +35,7 @@ namespace Hospital.Server.Controllers
             if (doctor != null)
             {
                 // Авторизация прошла успешно, можно создать сессию или куки
-                return Ok(new { message = "Login successful", userType = "Doctor", userName = doctor.FirstName });
+                return Ok(new { message = "Login successful", userType = "Doctor", firstName = doctor.FirstName, lastName = doctor.LastName, userId = doctor.DoctorId, email = doctor.Email, phone = doctor.Phone, });
             }
 
             return Unauthorized(new { message = "Invalid credentials" });

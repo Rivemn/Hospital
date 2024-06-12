@@ -1,7 +1,7 @@
 <div class="container">
-  <h2 class="text-center">Корзина</h2>
+  <h2 class="text-center">Shopping cart</h2>
   <div *ngIf="cartItems.length === 0" class="alert alert-info text-center">
-    Ваша корзина пуста.
+    Your shopping cart is empty.
   </div>
   <div *ngIf="cartItems.length > 0">
     <div class="cart-item" *ngFor="let cartItem of cartItems">
@@ -17,20 +17,20 @@
           <p><strong>{{ cartItem.item.unitPrice * cartItem.quantity }} грн</strong></p>
         </div>
         <div class="col-md-2">
-          <label for="quantity-{{cartItem.item.itemId}}">Количество:</label>
+          <label for="quantity-{{cartItem.item.itemId}}">Quantity:</label>
           <input type="number" id="quantity-{{cartItem.item.itemId}}" [(ngModel)]="cartItem.quantity" [max]="cartItem.item.quantityAvailable" (change)="validateQuantity(cartItem); updateCart()">
-          <p>Доступно на складе: {{ cartItem.item.quantityAvailable }}</p>
+          <p>Available in stock: {{ cartItem.item.quantityAvailable }}</p>
         </div>
         <div class="col-md-2">
-          <button class="btn btn-danger" (click)="removeFromCart(cartItem.item.itemId)">Удалить</button>
+          <button class="btn btn-danger" (click)="removeFromCart(cartItem.item.itemId)">Delete</button>
         </div>
       </div>
       <hr>
     </div>
     <div class="text-center">
-      <h3>Общая сумма: {{ totalPrice }} грн</h3>
-      <button class="btn btn-danger" (click)="clearCart()">Очистить корзину</button>
-      <button class="btn btn-success" [routerLink]="['/sales/checkout']">Оформить заказ</button>
+      <h3>Total amount: {{ totalPrice }} грн</h3>
+      <button class="btn btn-danger" (click)="clearCart()">Empty your cart</button>
+      <button class="btn btn-success" [routerLink]="['/sales/checkout']">Place an order</button>
     </div>
   </div>
 </div>

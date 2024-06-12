@@ -21,6 +21,7 @@ export class AuthorizationComponent {
     this.authService.login(this.email, this.password, this.role).subscribe(
       response => {
         if (response.userType === 'Customer' || response.userType === 'Doctor') {
+
           this.router.navigate(['/']); // Перенаправляем на главную страницу
         
         }

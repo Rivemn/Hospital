@@ -5,16 +5,16 @@
       <img [src]="item.photo" [alt]="item.itemName" class="img-fluid product-image">
     </div>
     <div class="col-md-6">
-      <h4>Описание</h4>
+      <h4>Description</h4>
       <p>{{ item.itemDescription }}</p>
-      <h4>Цена</h4>
-      <p>Цена за упаковку: <strong>{{ item.unitPrice }} грн.</strong></p>
-      <p>В наличии: {{ item.quantityAvailable }}</p>
-      <h4>Состав</h4>
+      <h4>Price</h4>
+      <p>Price per package: <strong>{{ item.unitPrice }} грн.</strong></p>
+      <p>In stock: {{ item.quantityAvailable }}</p>
+      <h4>Composition</h4>
       <p>{{ item.releaseForm }}</p>
-      <h4>Страна происхождения</h4>
+      <h4>Country of origin</h4>
       <p>{{ item.countryOfOrigin }}</p>
-      <h4>Производитель</h4>
+      <h4>Manufacturer</h4>
       <p>{{ item.manufacturer }}</p>
       <button class="btn btn-primary" (click)="addItemToCart(item) ">{{buttonName}}</button>
     </div>

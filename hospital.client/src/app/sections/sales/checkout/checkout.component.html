@@ -1,10 +1,10 @@
 <div class="container checkout-form">
-  <h2 class="text-center">Оформление заказа</h2>
+  <h2 class="text-center">Order placement</h2>
   <form (ngSubmit)="onSubmit()" #checkoutForm="ngForm">
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <label for="fullName">ФИО</label>
+          <label for="fullName">FULL NAME</label>
           <input type="text" id="fullName" class="form-control" [(ngModel)]="checkoutData.fullName" name="fullName" required [disabled]="isLoggedIn">
         </div>
         <div class="form-group">
@@ -12,15 +12,15 @@
           <input type="email" id="email" class="form-control" [(ngModel)]="checkoutData.email" name="email" required [disabled]="isLoggedIn">
         </div>
         <div class="form-group">
-          <label for="phone">Телефон</label>
+          <label for="phone">Phone</label>
           <input type="tel" id="phone" class="form-control" [(ngModel)]="checkoutData.phone" name="phone" required [disabled]="isLoggedIn">
         </div>
         <div class="form-group">
-          <label for="address">Адрес доставки</label>
+          <label for="address">Delivery address</label>
           <input type="text" id="address" class="form-control" [(ngModel)]="checkoutData.address" name="address" required>
         </div>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary btn-block" [disabled]="!checkoutForm.form.valid">Оформить заказ</button>
+    <button type="submit" class="btn btn-primary btn-block" [disabled]="!checkoutForm.form.valid">Place an order</button>
   </form>
 </div>

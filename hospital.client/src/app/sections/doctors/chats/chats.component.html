@@ -1,6 +1,6 @@
 <div *ngFor="let chat of chats">
   <div>
-    <button (click)="viewMessages(chat.chatId)">View Messages</button>
+    <button (click)="viewMessages(chat.chatId)">Просмотр сообщений</button>
     <div *ngIf="chat.doctorId">
       <p>Doctor: {{ doctorNames[chat.doctorId] || 'Loading...' }}</p>
     </div>

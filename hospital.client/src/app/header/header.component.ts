@@ -19,7 +19,9 @@ export class HeaderComponent {
   get isLoggedIn(): boolean {
     return this.authService.isLoggedIn();
   }
-
+  get userType(): string | null {
+    return this.authService.getUserType();
+  }
   get fullName(): string | null {
     const firstName = this.authService.getFirstName();
     const lastName = this.authService.getLastName();

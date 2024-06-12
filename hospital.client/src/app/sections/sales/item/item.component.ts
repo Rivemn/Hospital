@@ -18,7 +18,7 @@ export class ItemComponent implements OnInit {
   item: Items | null = null;
   errorMessage: string | null = null;
   isLoading: boolean = true;
-  buttonName: string = 'добавить в корзину';
+  buttonName: string = 'add to cart';
   constructor(
     private route: ActivatedRoute,
     private itemService: ItemsService,
