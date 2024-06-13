@@ -1,25 +1,37 @@
-import { Component, Input, OnInit } from '@angular/core';
+// messages.component.ts
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { ChatService } from '../service/chats.service';
 import { Messages } from '../models/Messages';
-import { DoctorsService } from '../service/doctors.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription, interval, switchMap } from 'rxjs';
+import { AuthorizationService } from '../../../authorization/service/authorization.service';
+
+
 @Component({
   selector: 'app-messages',
   templateUrl: './messages.component.html',
   styleUrls: ['./messages.component.css']
 })
-export class MessagesComponent implements OnInit {
+export class MessagesComponent implements OnInit, OnDestroy {
   @Input() chatId!: number;
   messages: Messages[] = [];
   newMessageText: string | undefined;
   private intervalSubscription: Subscription | undefined;
-  constructor(private chatService: ChatService, private route: ActivatedRoute) { }
+  customerName: string | null = '';
+
+  constructor(
+    private chatService: ChatService,
+    private route: ActivatedRoute,
+    private authService: AuthorizationService
+  ) { }
+
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.chatId = +params.get('chatId')!;
       this.startMessagePolling();
     });
+
+    this.customerName = this.authService.getFirstName();
   }
 
   ngOnDestroy(): void {
@@ -59,5 +71,4 @@ export class MessagesComponent implements OnInit {
       });
     }
   }
-
 }

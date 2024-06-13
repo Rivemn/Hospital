@@ -1,8 +1,13 @@
-<div *ngFor="let chat of chats">
-  <div>
-    <button (click)="viewMessages(chat.chatId)">Просмотр сообщений</button>
-    <div *ngIf="chat.doctorId">
-      <p>Doctor: {{ doctorNames[chat.doctorId] || 'Loading...' }}</p>
+
+<!-- manage-orders.component.html -->
+<div class="container">
+  <h2>Chat list</h2>
+  <div *ngFor="let chat of chats" class="chat-item">
+    <div class="chat-details">
+      <button (click)="viewMessages(chat.chatId)" class="view-button">View messages</button>
+      <div *ngIf="chat.doctorId" class="doctor-info">
+        <p class="doctor-name">Doctor: {{ doctorNames[chat.doctorId] || 'Loading...' }}</p>
+      </div>
     </div>
   </div>
 </div>

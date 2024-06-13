@@ -1,13 +1,15 @@
-<div *ngIf="selectedDoctor">
-  <h2>Запись к врачу: {{ selectedDoctor.name }}</h2>
-  <form (ngSubmit)="makeAppointment()">
-    <div>
+
+<!-- manage-orders.component.html -->
+<div *ngIf="selectedDoctor" class="appointment-container">
+  <h2>Doctor's appointment: {{ selectedDoctor.name }}</h2>
+  <form (ngSubmit)="makeAppointment()" class="appointment-form">
+    <div class="form-group">
       <label for="appointmentDate">Date and time of admission:</label>
       <input type="datetime-local" id="appointmentDate" [(ngModel)]="appointmentDate" name="appointmentDate" required>
     </div>
-    <button type="submit">Sign up</button>
+    <button type="submit" class="submit-button">Sign up</button>
   </form>
 </div>
-<div *ngIf="!selectedDoctor">
+<div *ngIf="!selectedDoctor" class="no-doctor-selected">
   <p>Select a doctor to make an appointment.</p>
 </div>

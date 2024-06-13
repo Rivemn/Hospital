@@ -1,36 +1,73 @@
-.container {
-  width: 80%;
-  margin: 0 auto;
+/* manage-orders.component.css */
+.appointment-container {
   padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  max-width: 600px;
+  margin: 20px auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 400px; /* Добавляем отступ снизу для контейнера */
 }
 
 h2 {
   text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
 }
 
-.appointment-list {
-  list-style-type: none;
-  padding: 0;
+.appointment-form {
+  display: flex;
+  flex-direction: column;
 }
 
-  .appointment-list li {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
+.form-group {
+  margin-bottom: 15px;
+}
+
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #333;
   }
 
-.button {
-  display: block;
-  width: 200px;
-  margin: 20px auto;
-  padding: 10px;
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+.submit-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
   background-color: #007bff;
-  color: white;
-  text-align: center;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-  .button:hover {
+  .submit-button:hover {
     background-color: #0056b3;
+  }
+
+.no-doctor-selected {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  max-width: 600px;
+  margin: 20px auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+  .no-doctor-selected p {
+    font-size: 18px;
+    color: #777;
   }

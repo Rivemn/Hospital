@@ -76,6 +76,7 @@ nav ul {
   width: 300px;
   text-align: center;
   margin: 50px auto;
+  margin-bottom: 250px; /* Добавляем отступ снизу для контейнера */
 }
 
 h2 {

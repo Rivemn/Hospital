@@ -11,6 +11,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { SalesHeaderComponent } from './sales-header/sales-header.component';
 import { SalesComponent } from './sales.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
 @NgModule({
   declarations: [
     SalesComponent,
@@ -19,7 +20,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     ItemComponent,
     ShoppingCartComponent,
     SalesHeaderComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ManageOrdersComponent
   ],
   imports: [
     CommonModule,

@@ -2,7 +2,17 @@
   max-width: 600px;
   margin: auto;
 }
-
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  margin-bottom: 250px; /* Добавляем отступ снизу для контейнера */
+}
 .message-list {
   list-style-type: none;
   padding: 0;

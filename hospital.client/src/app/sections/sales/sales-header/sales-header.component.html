@@ -1,14 +1,18 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid d-flex justify-content-end">
-    <a class="nav-link position-relative d-flex align-items-center" [routerLink]="['/shopping-cart']">
-      <i class="fas fa-shopping-cart me-2"></i>
-      <span>Shopping cart</span>
-      <span *ngIf="cartItemCount > 0" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-        {{ cartItemCount }}
-        <span class="visually-hidden">unread messages</span>
-      </span>
-    </a>
+<header>
+  <div class="header-container">
+    <div class="nav">
+      
+      <a class="nav-link position-relative d-flex align-items-center" href="/shopping-cart">
+        <i class="fas fa-shopping-cart"></i>
+        <span>Shopping cart</span>
+        <span class="badge" *ngIf="cartItemCount > 0">
+          {{ cartItemCount }}
+          <span class="visually-hidden">unread messages</span>
+        </span>
+      </a>
+    </div>
   </div>
-</nav>
+</header>
+
 
 

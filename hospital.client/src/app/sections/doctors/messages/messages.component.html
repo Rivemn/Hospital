@@ -1,7 +1,9 @@
-<div class="message-container">
+<!-- messages.component.html -->
+<div class="container">
   <!-- Вывод сообщений -->
   <ul class="message-list">
     <li *ngFor="let message of messages" class="message-item">
+      <span *ngIf="message.senderCustomerID" class="customer-name">{{ customerName }}:</span>
       {{ message.messageText }}
     </li>
   </ul>
@@ -12,4 +14,3 @@
     <button type="submit" class="send-button">Send</button>
   </form>
 </div>
-

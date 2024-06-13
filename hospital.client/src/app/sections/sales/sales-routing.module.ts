@@ -6,6 +6,7 @@ import { CategoriesWithItemsComponent } from './categories-with-items/categories
 import { ItemComponent } from './item/item.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
 const routes: Routes = [
   {
     path: '',
@@ -17,6 +18,7 @@ const routes: Routes = [
       { path: 'item', component: ItemComponent },
       { path: 'shopping-cart', component: ShoppingCartComponent },
       { path: 'checkout', component: CheckoutComponent },
+      { path: 'manage-orders', component: ManageOrdersComponent },
       { path: '', redirectTo: 'categories', pathMatch: 'full' }  // Редирект на страницу категорий с товарами по умолчанию
     ]
   }

@@ -12,7 +12,7 @@ import { CartService } from '../service/cart.service';
   styleUrl: './categories-with-items.component.css'
 })
 export class CategoriesWithItemsComponent {
-  buttonName: string = 'добавить в корзину';
+  buttonName: string = 'add to cart';
   selectedCategory: string ='Medicines and Preventive Products';
   selectedSubcategories: Set<string> = new Set<string>();
   items: Items[] = [];

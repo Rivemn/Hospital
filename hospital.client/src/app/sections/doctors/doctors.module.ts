@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { MessagesComponent } from './messages/messages.component';
 import { DoctorHeaderComponent } from './doctor-header/doctor-header.component';
 import { DoctorsComponent } from './doctors.component';
+import { ManageAppointmentsComponent } from './manage-appointments/manage-appointments.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DoctorsComponent } from './doctors.component';
     AppointmentsComponent,
     ChatsComponent,
     MessagesComponent,
-    DoctorHeaderComponent
+    DoctorHeaderComponent,
+    ManageAppointmentsComponent
   ],
   imports: [
     CommonModule,
